@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<script src="./i18n.js"></script>
+</helmet>
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;font-family:Inter,system-ui,sans-serif">
+  <sc-if value="{{ showTop }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#000000;border-bottom:1px solid rgba(169,182,204,0.12);color:#B5C1D2;font-size:13px">
+      <div style="max-width:1320px;margin:0 auto;padding:0 28px;height:38px;display:flex;align-items:center;gap:22px;overflow:hidden">
+        <a href="tel:+13013061099" style="display:flex;align-items:center;gap:8px;color:#B5C1D2;text-decoration:none;white-space:nowrap" style-hover="color:#F3F6FA"><dc-import name="Icon" dc-props="{{ ic.phone }}" hint-size="14px,14px"></dc-import>(301) 306-1099</a>
+        <span style="opacity:.35">·</span>
+        <a href="mailto:waynox.safety@gmail.com" style="display:flex;align-items:center;gap:8px;color:#B5C1D2;text-decoration:none;white-space:nowrap" style-hover="color:#F3F6FA"><dc-import name="Icon" dc-props="{{ ic.mail }}" hint-size="14px,14px"></dc-import>waynox.safety@gmail.com</a>
+        <span style="opacity:.35">·</span>
+        <span style="white-space:nowrap">MC# [MC NUMBER]</span>
+        <span style="opacity:.35">·</span>
+        <span style="white-space:nowrap">USDOT# [DOT NUMBER]</span>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:14px">
+          <div data-no-i18n="" style="display:flex;gap:2px;padding:2px;border:1px solid rgba(169,182,204,0.3);border-radius:6px"><sc-for list="{{ langs }}" as="l" hint-placeholder-count="3"><button type="button" onClick="{{ l.pick }}" style="border:0;cursor:pointer;border-radius:4px;padding:4px 8px;font:800 11px Montserrat,sans-serif;letter-spacing:.08em;background:{{ l.bg }};color:{{ l.color }}">{{ l.label }}</button></sc-for></div>
+          <span style="font:800 11px Montserrat,sans-serif;letter-spacing:.14em;color:#8DB8E8;white-space:nowrap">24/7 DISPATCH</span>
+          <a href="https://t.me/" target="_blank" aria-label="Telegram" style="color:#B5C1D2;display:flex" style-hover="color:#8DB8E8"><dc-import name="Icon" dc-props="{{ ic.tg }}" hint-size="16px,16px"></dc-import></a>
+          <a href="https://wa.me/" target="_blank" aria-label="WhatsApp" style="color:#B5C1D2;display:flex" style-hover="color:#8DB8E8"><dc-import name="Icon" dc-props="{{ ic.wa }}" hint-size="16px,16px"></dc-import></a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+  <div style="background:{{ barBg }};border-bottom:1px solid {{ barBorder }};box-shadow:{{ barShadow }};transition:background .3s ease, box-shadow .3s ease">
+    <div style="max-width:1320px;margin:0 auto;padding:0 28px;height:{{ barH }};display:flex;align-items:center;gap:28px;transition:height .3s ease">
+      <a href="Home.dc.html" aria-label="Waynox Freight home" style="display:flex;align-items:center;flex:none">
+        <img src="assets/waynox-logo-white.png" alt="Waynox Freight" style="height:{{ logoH }};width:auto;display:block;transition:height .3s ease">
+      </a>
+      <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+        <nav style="display:flex;align-items:center;gap:4px;margin-left:12px">
+          <sc-for list="{{ navA }}" as="n" hint-placeholder-count="2">
+            <a href="{{ n.href }}" style="position:relative;padding:10px 14px;font:700 13px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:{{ n.color }};border-bottom:2px solid {{ n.line }}" style-hover="color:#FFFFFF">{{ n.label }}</a>
+          </sc-for>
+          <div onMouseEnter="{{ ddOpen }}" onMouseLeave="{{ ddClose }}" style="position:relative">
+            <a href="Services.dc.html" style="display:flex;align-items:center;gap:6px;padding:10px 14px;font:700 13px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:{{ svcColor }};border-bottom:2px solid {{ svcLine }}" style-hover="color:#FFFFFF">Services<dc-import name="Icon" dc-props="{{ ic.down }}" hint-size="14px,14px"></dc-import></a>
+            <sc-if value="{{ dd }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:100%;left:-12px;padding-top:12px;width:340px">
+                <div style="background:#021632;border:1px solid rgba(141,184,232,0.35);border-radius:14px;padding:10px;box-shadow:0 24px 60px -12px rgba(0,0,0,0.6);display:flex;flex-direction:column;gap:2px">
+                  <sc-for list="{{ svcItems }}" as="s" hint-placeholder-count="4">
+                    <a href="{{ s.href }}" style="display:flex;gap:14px;align-items:center;padding:12px 14px;border-radius:10px;text-decoration:none;color:#F3F6FA" style-hover="background:rgba(141,184,232,0.14)">
+                      <span style="width:38px;height:38px;border-radius:9px;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;flex:none"><dc-import name="Icon" dc-props="{{ s.icon }}" hint-size="20px,20px"></dc-import></span>
+                      <span style="display:flex;flex-direction:column;gap:2px"><span style="font:800 13px Montserrat,sans-serif;letter-spacing:.04em;text-transform:uppercase">{{ s.label }}</span><span style="font-size:12.5px;color:#B5C1D2">{{ s.desc }}</span></span>
+                    </a>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+          <sc-for list="{{ navB }}" as="n" hint-placeholder-count="2">
+            <a href="{{ n.href }}" style="position:relative;padding:10px 14px;font:700 13px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:{{ n.color }};border-bottom:2px solid {{ n.line }}" style-hover="color:#FFFFFF">{{ n.label }}</a>
+          </sc-for>
+        </nav>
+        <div style="margin-left:auto;display:flex;gap:12px;align-items:center">
+          <a href="Request-Quote.dc.html" style="padding:13px 20px;border:1.5px solid rgba(255,255,255,0.55);border-radius:6px;color:#FFFFFF;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:all .2s ease" style-hover="border-color:#8DB8E8;background:rgba(141,184,232,0.12)">Get a Quote</a>
+          <a href="Drive-With-Us.dc.html" style="padding:14.5px 20px;background:#8DB8E8;border-radius:6px;color:#000E24;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:all .2s ease;" style-hover="background:#A6C8EE;transform:translateY(-1px)">Drive With Us</a>
+        </div>
+      </sc-if>
+      <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-left:auto;display:flex;gap:10px;align-items:center">
+          <a href="tel:+13013061099" aria-label="Call" style="width:44px;height:44px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:#FFFFFF"><dc-import name="Icon" dc-props="{{ ic.phone18 }}" hint-size="18px,18px"></dc-import></a>
+          <button onClick="{{ openMenu }}" aria-label="Open menu" style="width:44px;height:44px;border-radius:8px;border:0;background:#8DB8E8;color:#000E24;display:flex;align-items:center;justify-content:center;cursor:pointer"><dc-import name="Icon" dc-props="{{ ic.menu }}" hint-size="22px,22px"></dc-import></button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:#000E24;z-index:60;display:flex;flex-direction:column;overflow-y:auto">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid rgba(169,182,204,0.12)">
+        <img src="assets/waynox-logo-white.png" alt="Waynox Freight" style="height:30px;width:auto;display:block">
+        <button onClick="{{ closeMenu }}" aria-label="Close menu" style="width:44px;height:44px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:transparent;color:#F3F6FA;display:flex;align-items:center;justify-content:center;cursor:pointer"><dc-import name="Icon" dc-props="{{ ic.close }}" hint-size="22px,22px"></dc-import></button>
+      </div>
+      <nav style="display:flex;flex-direction:column;padding:20px 24px;gap:2px">
+        <sc-for list="{{ mobileNav }}" as="n" hint-placeholder-count="5">
+          <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="padding:14px 0;font:800 28px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:-.01em;color:{{ n.mcolor }};text-decoration:none;border-bottom:1px solid rgba(169,182,204,0.1)">{{ n.label }}</a>
+        </sc-for>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:12px 0 6px 0">
+          <sc-for list="{{ svcItems }}" as="s" hint-placeholder-count="4">
+            <a href="{{ s.href }}" onClick="{{ closeMenu }}" style="display:flex;align-items:center;gap:10px;padding:9px 0;color:#B5C1D2;text-decoration:none;font:700 14px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.06em">{{ s.label }}</a>
+          </sc-for>
+        </div>
+      </nav>
+      <div style="margin-top:auto;padding:24px;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(169,182,204,0.12)">
+        <div style="display:flex;justify-content:center"><div data-no-i18n="" style="display:flex;gap:2px;padding:2px;border:1px solid rgba(169,182,204,0.3);border-radius:6px"><sc-for list="{{ langs }}" as="l" hint-placeholder-count="3"><button type="button" onClick="{{ l.pick }}" style="border:0;cursor:pointer;border-radius:4px;padding:10px 18px;font:800 11px Montserrat,sans-serif;letter-spacing:.08em;background:{{ l.bg }};color:{{ l.color }}">{{ l.label }}</button></sc-for></div></div>
+        <a href="tel:+13013061099" style="display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.4);color:#F3F6FA;text-decoration:none;font:800 14px Montserrat,sans-serif;letter-spacing:.06em"><dc-import name="Icon" dc-props="{{ ic.phone18 }}" hint-size="18px,18px"></dc-import>CALL (301) 306-1099</a>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <a href="Request-Quote.dc.html" style="display:flex;align-items:center;justify-content:center;height:54px;border-radius:8px;border:1.5px solid #8DB8E8;color:#F3F6FA;text-decoration:none;font:800 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">Get a Quote</a>
+          <a href="Drive-With-Us.dc.html" style="display:flex;align-items:center;justify-content:center;height:54px;border-radius:8px;background:#8DB8E8;color:#000E24;text-decoration:none;font:800 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">Drive With Us</a>
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;padding-top:8px">
+          <a href="https://t.me/" target="_blank" aria-label="Telegram" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(141,184,232,0.6);display:flex;align-items:center;justify-content:center;color:#8DB8E8"><dc-import name="Icon" dc-props="{{ ic.tg20 }}" hint-size="20px,20px"></dc-import></a>
+          <a href="https://wa.me/" target="_blank" aria-label="WhatsApp" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(141,184,232,0.6);display:flex;align-items:center;justify-content:center;color:#8DB8E8"><dc-import name="Icon" dc-props="{{ ic.wa20 }}" hint-size="20px,20px"></dc-import></a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;about&quot;,&quot;services&quot;,&quot;safety&quot;,&quot;contact&quot;,&quot;faq&quot;,&quot;quote&quot;,&quot;drive&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { y: 0, w: 1440, menu: false, dd: false, lang: (typeof localStorage !== 'undefined' && localStorage.getItem('waynox-lang')) || 'en' };
+  componentDidMount() {
+    this.on = () => this.setState({ y: window.scrollY, w: window.innerWidth });
+    window.addEventListener('scroll', this.on, { passive: true });
+    window.addEventListener('resize', this.on);
+    this.on();
+    const hook = () => { if (window.WaynoxI18n) { this.off = window.WaynoxI18n.on((l) => this.setState({ lang: l })); this.setState({ lang: window.WaynoxI18n.lang }); } else this.ht = setTimeout(hook, 100); };
+    hook();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.on); window.removeEventListener('resize', this.on); this.off && this.off(); }
+  renderVals() {
+    const a = this.props.active ?? '';
+    const sc = this.state.y > 40, desk = this.state.w >= 1140;
+    const mk = (label, href, k) => ({ label, href, color: a === k ? '#FFFFFF' : '#C3CDDD', line: a === k ? '#8DB8E8' : 'transparent', mcolor: a === k ? '#8DB8E8' : '#FFFFFF' });
+    const navA = [mk('Home', 'Home.dc.html', 'home'), mk('About', 'About.dc.html', 'about')];
+    const navB = [mk('Safety', 'Safety.dc.html', 'safety'), mk('Contact', 'Contact.dc.html', 'contact')];
+    const i = (icon, size = 14) => ({ icon, size });
+    const svcItems = [
+      { label: 'Dry Van', desc: "53' full truckload, nationwide", href: 'Services.dc.html#dry-van', icon: i('truck', 20) },
+      { label: 'Power Only', desc: 'Our tractor, your trailer', href: 'Services.dc.html#power-only', icon: i('plug', 20) },
+      { label: 'Amazon-Related Freight', desc: 'Relay loads and linehaul', href: 'Services.dc.html#amazon', icon: i('box', 20) },
+      { label: 'Request a Quote', desc: 'Rates & availability for your lane', href: 'Request-Quote.dc.html', icon: i('tag', 20) }
+    ];
+    const langs = ['en', 'uz', 'ru'].map((k) => ({ label: k.toUpperCase(), bg: this.state.lang === k ? '#8DB8E8' : 'transparent', color: this.state.lang === k ? '#000E24' : '#A9B6CC', pick: () => window.WaynoxI18n && window.WaynoxI18n.set(k) }));
+    return {
+      langs, showTop: desk && !sc, desktop: desk, mobile: !desk, menu: this.state.menu, dd: this.state.dd,
+      barBg: sc || !desk ? 'rgba(0,14,36,0.97)' : 'linear-gradient(180deg, rgba(0,14,36,0.75), rgba(0,14,36,0))',
+      barBorder: sc ? 'rgba(141,184,232,0.25)' : 'transparent',
+      barShadow: sc ? '0 10px 30px -10px rgba(0,0,0,0.6)' : 'none',
+      barH: sc || !desk ? '68px' : '84px', logoH: sc || !desk ? '28px' : '34px',
+      navA, navB, svcItems, mobileNav: [...navA, mk('Services', 'Services.dc.html', 'services'), ...navB, mk('FAQ', 'FAQ.dc.html', 'faq')],
+      svcColor: a === 'services' ? '#FFFFFF' : '#C3CDDD', svcLine: a === 'services' ? '#8DB8E8' : 'transparent',
+      ic: { phone: i('phone'), mail: i('mail'), tg: i('telegram', 16), wa: i('whatsapp', 16), down: i('down'), phone18: i('phone', 18), menu: i('menu', 22), close: i('close', 22), tg20: i('telegram', 20), wa20: i('whatsapp', 20) },
+      ddOpen: () => this.setState({ dd: true }), ddClose: () => this.setState({ dd: false }),
+      openMenu: () => { this.setState({ menu: true }); document.body.style.overflow = 'hidden'; },
+      closeMenu: () => { this.setState({ menu: false }); document.body.style.overflow = ''; }
+    };
+  }
+}
+</script>
+</body>
+</html>

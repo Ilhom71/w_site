@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: waynox-freight
+    runtime: static
+    buildCommand: echo "static site - no build"
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*.html
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=86400
+    routes:
+      - type: rewrite
+        source: /Home
+        destination: /index.html

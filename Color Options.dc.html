@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>body{margin:0;background:#E9EDF3;font-family:Inter,sans-serif}a{color:#3F72B5}a:hover{color:#1F2E47}</style>
+</helmet>
+<section style="padding:48px;display:flex;flex-direction:column;gap:28px">
+  <h1 style="margin:0;font:800 28px Montserrat,sans-serif;color:#1F2E47">Tugma va matn ranglari — 3 variant (fonlar o'zgarmagan)</h1>
+  <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+    <sc-for list="{{ opts }}" as="o" hint-placeholder-count="4">
+      <div id="{{ o.id }}" style="width:520px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:10px"><span style="background:#1F2E47;color:#FFFFFF;font:800 13px Montserrat,sans-serif;padding:4px 10px;border-radius:4px">{{ o.id }}</span><span style="font:700 15px Montserrat,sans-serif;color:#1F2E47">{{ o.name }}</span></div>
+        <div style="background:#1F2E47;border-radius:14px;padding:36px;display:flex;flex-direction:column;gap:18px">
+          <span style="font:800 12px Montserrat,sans-serif;letter-spacing:.18em;color:{{ o.eyebrow }}">NATIONWIDE OTR CARRIER</span>
+          <h2 style="margin:0;font:800 34px/1.05 Montserrat,sans-serif;color:{{ o.head }}">Nationwide freight. <span style="color:{{ o.hl }}">Transparent</span> partnership.</h2>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:{{ o.body }}">Dry van, power only and Amazon-related freight across the lower 48 — with dispatch 24/7.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <span style="padding:13px 22px;border-radius:8px;font:800 13px Montserrat,sans-serif;background:{{ o.btn }};color:{{ o.btnText }}">Get a Quote</span>
+            <span style="padding:12px 21px;border-radius:8px;font:800 13px Montserrat,sans-serif;border:1px solid {{ o.ghost }};color:{{ o.ghost }}">Drive With Us</span>
+          </div>
+        </div>
+        <div style="background:#F4F7FC;border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:14px">
+          <span style="font:800 12px Montserrat,sans-serif;letter-spacing:.18em;color:{{ o.lEyebrow }}">WHAT WE HAUL</span>
+          <h3 style="margin:0;font:800 26px Montserrat,sans-serif;color:{{ o.lHead }}">Capacity for shippers &amp; brokers</h3>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:{{ o.lBody }}">53' full truckload for palletized and boxed freight, moving nationwide OTR.</p>
+          <div style="display:flex;gap:16px;align-items:center">
+            <span style="padding:13px 22px;border-radius:8px;font:800 13px Montserrat,sans-serif;background:{{ o.lBtn }};color:{{ o.lBtnText }}">Request a Quote</span>
+            <span style="font:700 14px Montserrat,sans-serif;color:{{ o.link }}">Learn more →</span>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { opts: [
+      { id: '0', name: 'Hozirgi', eyebrow: '#FFFFFF', head: '#FFFFFF', hl: '#3F72B5', body: '#C3CDDD', btn: '#3F72B5', btnText: '#FFFFFF', ghost: '#FFFFFF', lEyebrow: '#3F72B5', lHead: '#1F2E47', lBody: '#4A5A75', lBtn: '#3F72B5', lBtnText: '#FFFFFF', link: '#3F72B5' },
+      { id: '1a', name: 'Och osmon-ko‘k tugma, to‘q matn', eyebrow: '#8DB8E8', head: '#F3F6FA', hl: '#8DB8E8', body: '#D3DBE6', btn: '#8DB8E8', btnText: '#1F2E47', ghost: '#D3DBE6', lEyebrow: '#3A6AA8', lHead: '#24344F', lBody: '#55647C', lBtn: '#24344F', lBtnText: '#FFFFFF', link: '#3A6AA8' },
+      { id: '1b', name: 'Oq tugma, iliq oq matn', eyebrow: '#B9CCE6', head: '#F7F5F0', hl: '#B9CCE6', body: '#D9DDE3', btn: '#F7F5F0', btnText: '#1F2E47', ghost: '#B9CCE6', lEyebrow: '#4F6E96', lHead: '#2A3445', lBody: '#5B6575', lBtn: '#2F4A70', lBtnText: '#FFFFFF', link: '#2F4A70' },
+      { id: '1c', name: 'Yumshoq to‘q sariq aksent', eyebrow: '#E9A85C', head: '#FFFFFF', hl: '#E9A85C', body: '#D3DBE6', btn: '#E9A85C', btnText: '#1F2E47', ghost: '#D3DBE6', lEyebrow: '#B86E1F', lHead: '#1F2E47', lBody: '#4A5A75', lBtn: '#1F2E47', lBtnText: '#FFFFFF', link: '#B86E1F' },
+    ] };
+  }
+}
+</script>
+</body>
+</html>

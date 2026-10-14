@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>About — Waynox Freight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+html,body{margin:0;background:#000E24;-webkit-font-smoothing:antialiased}
+a{color:#3A6AA8}
+a:hover{color:#2F5A92}
+*{box-sizing:border-box}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+<div style="font-family:Inter,system-ui,sans-serif;color:#F3F6FA;background:#000E24;overflow-x:clip">
+<dc-import name="SiteHeader" active="about" hint-size="100%,1px"></dc-import>
+
+<section data-screen-label="About hero" style="position:relative;overflow:hidden;background:#000E24">
+  <div style="position:absolute;top:0;bottom:0;right:0;width:64%;opacity:.6"><image-slot id="about-hero" shape="rect" placeholder="Hero photo — team or office in Lisle, IL" src="https://images.unsplash.com/photo-1695222833131-54ee679ae8e5?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Artem Balashevsky on Unsplash" credit-href="https://unsplash.com/@abalashevsky"></image-slot></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000E24 0%,#000E24 34%,rgba(0,14,36,0.5) 70%,rgba(0,14,36,0.25) 100%)"></div>
+  <div style="position:absolute;inset:auto 0 0 0;height:40%;pointer-events:none;background:linear-gradient(180deg,rgba(0,14,36,0),#000E24)"></div>
+  <div style="position:relative;pointer-events:none;max-width:1320px;margin:0 auto;padding:clamp(130px,14vw,190px) 28px clamp(56px,6vw,90px);display:flex;flex-direction:column;gap:20px">
+    <nav aria-label="Breadcrumb" style="pointer-events:auto;display:flex;gap:10px;font:600 13px Inter,sans-serif;color:#B5C1D2"><a href="Home.dc.html" style="color:#B5C1D2;text-decoration:none" style-hover="color:#F3F6FA">Home</a><span style="color:#8DB8E8">/</span><span style="color:#F3F6FA" aria-current="page">About</span></nav>
+    <h1 style="margin:0;font:800 clamp(30px,5.6vw,80px)/0.96 Montserrat,sans-serif;letter-spacing:-.015em;max-width:900px">A carrier built on <span style="color:#8DB8E8">transparency</span></h1>
+    <p style="margin:0;max-width:560px;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:#D3DBE6">Nationwide OTR freight for shippers and brokers — and a fair, open partnership for owner operators.</p>
+  </div>
+  <a href="https://unsplash.com/@abalashevsky" target="_blank" style="position:absolute;right:16px;bottom:10px;z-index:2;font:500 11px Inter,sans-serif;color:rgba(255,255,255,0.6);text-decoration:none" style-hover="color:#F3F6FA">Photo: Artem Balashevsky / Unsplash</a>
+</section>
+
+<section data-screen-label="Our story" style="background:#F4F7FC;color:#24344F;padding:clamp(72px,9vw,112px) 0">
+  <div style="max-width:1320px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+    <div data-reveal="" style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:center;gap:12px;font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#3A6AA8">OUR STORY</div>
+      <h2 style="margin:0;font:800 clamp(32px,4.2vw,56px)/1 Montserrat,sans-serif;">How Waynox started</h2>
+      <p style="margin:0;color:#55647C;font-size:17px;line-height:1.7">Waynox Freight started hauling in January 2026 from our office in Lisle, Illinois — with one goal: run freight the transparent way, for shippers and for the owner operators who move it.</p>
+      <p style="margin:0;color:#55647C;font-size:17px;line-height:1.7">We are a young, hands-on team: dispatch, updaters, ELD, accounting and fleet working under one roof, with dispatch available 24/7. [ADD MORE STORY]</p>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="flex:1 1 440px;min-width:0;position:relative">
+      <div style="position:absolute;right:-14px;bottom:-14px;width:45%;height:60%;background:#24344F;border-radius:16px"></div>
+      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,14,36,0.5)"><image-slot id="about-story" shape="rect" placeholder="Story photo — office, dispatch room or team" src="https://images.unsplash.com/photo-1473445730015-841f29a9490b?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Robson Hatsukami Morgan on Unsplash" credit-href="https://unsplash.com/@robsonhmorgan"></image-slot></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Mission" style="position:relative;background:#000E24;padding:clamp(72px,9vw,120px) 0;overflow:hidden">
+  <div data-reveal="" style="position:relative;max-width:1100px;margin:0 auto;padding:0 28px;display:flex;flex-direction:column;gap:26px">
+    <div style="display:flex;align-items:center;gap:12px;font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#8DB8E8">OUR MISSION</div>
+    <p style="margin:0;font:800 clamp(28px,3.8vw,52px)/1.1 Montserrat,sans-serif;text-transform:uppercase;letter-spacing:-.01em;text-wrap:balance">Move freight reliably for every customer — and treat every owner operator as a <span style="color:#8DB8E8">true partner</span>, with transparent pay and support around the clock.</p>
+  </div>
+</section>
+
+<section data-screen-label="Values" style="background:#021632;padding:clamp(72px,9vw,112px) 0">
+  <div style="max-width:1320px;margin:0 auto;padding:0 28px">
+    <div data-reveal="" style="margin-bottom:44px">
+      <div style="display:flex;align-items:center;gap:12px;font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#8DB8E8">VALUES</div>
+      <h2 style="margin:18px 0 0;font:800 clamp(32px,4.2vw,56px)/1 Montserrat,sans-serif;">What we stand on</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:24px">
+      <div data-reveal="" style="background:#000E24;border:1px solid rgba(141,184,232,0.4);border-radius:18px;padding:34px;display:flex;flex-direction:column;gap:16px;transition:all .25s" style-hover="border-color:#8DB8E8;transform:translateY(-4px)"><span style="color:#8DB8E8;display:flex"><dc-import name="Icon" icon="eye" size="40" stroke="1.5" hint-size="40px,40px"></dc-import></span><span style="font:800 22px Montserrat,sans-serif;text-transform:uppercase">Transparency</span><p style="margin:0;color:#B5C1D2;line-height:1.6">Clear pay, clear rates, no unnecessary charges. What we say is what you get.</p></div>
+      <div data-reveal="" data-reveal-delay="100" style="background:#000E24;border:1px solid rgba(141,184,232,0.4);border-radius:18px;padding:34px;display:flex;flex-direction:column;gap:16px;transition:all .25s" style-hover="border-color:#8DB8E8;transform:translateY(-4px)"><span style="color:#8DB8E8;display:flex"><dc-import name="Icon" icon="handshake" size="40" stroke="1.5" hint-size="40px,40px"></dc-import></span><span style="font:800 22px Montserrat,sans-serif;text-transform:uppercase">Reliability</span><p style="margin:0;color:#B5C1D2;line-height:1.6">Show up, communicate, deliver. For shippers and for the drivers who haul with us.</p></div>
+      <div data-reveal="" data-reveal-delay="200" style="background:#000E24;border:1px solid rgba(141,184,232,0.4);border-radius:18px;padding:34px;display:flex;flex-direction:column;gap:16px;transition:all .25s" style-hover="border-color:#8DB8E8;transform:translateY(-4px)"><span style="color:#8DB8E8;display:flex"><dc-import name="Icon" icon="headset" size="40" stroke="1.5" hint-size="40px,40px"></dc-import></span><span style="font:800 22px Montserrat,sans-serif;text-transform:uppercase">24/7 Support</span><p style="margin:0;color:#B5C1D2;line-height:1.6">Dispatch is staffed around the clock — nights, weekends and holidays.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Dispatch team" style="background:#F4F7FC;color:#24344F;padding:clamp(72px,9vw,112px) 0">
+  <div style="max-width:1320px;margin:0 auto;padding:0 28px">
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between;margin-bottom:44px">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#3A6AA8">THE TEAM</div>
+        <h2 style="margin:18px 0 0;font:800 clamp(32px,4.2vw,56px)/1 Montserrat,sans-serif;">Meet the team</h2>
+      </div>
+      <p style="margin:0;color:#55647C;max-width:380px;line-height:1.6">Dispatch, updaters, ELD, accounting and fleet — the people on the other end of the line. Office Mon–Fri 8am–6pm; dispatch 24/7.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:20px">
+      <div data-reveal="" data-reveal-delay="0" style="background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid #E1E8F3;transition:all .25s" style-hover="transform:translateY(-4px);border-color:#3A6AA8"><div style="aspect-ratio:1/1;background:linear-gradient(160deg,#021632,#000E24);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#B5C1D2"><dc-import name="Icon" icon="camera" size="30" stroke="1.5" hint-size="30px,30px"></dc-import><span style="font:700 11px Montserrat,sans-serif;letter-spacing:.14em">[TEAM PHOTO]</span></div><div style="padding:18px 20px"><div style="font:800 16px Montserrat,sans-serif;text-transform:uppercase">[Name]</div><div style="font-size:14px;color:#3A6AA8;font-weight:600;margin-top:4px">Dispatcher</div></div></div>
+      <div data-reveal="" data-reveal-delay="80" style="background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid #E1E8F3;transition:all .25s" style-hover="transform:translateY(-4px);border-color:#3A6AA8"><div style="aspect-ratio:1/1;background:linear-gradient(160deg,#021632,#000E24);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#B5C1D2"><dc-import name="Icon" icon="camera" size="30" stroke="1.5" hint-size="30px,30px"></dc-import><span style="font:700 11px Montserrat,sans-serif;letter-spacing:.14em">[TEAM PHOTO]</span></div><div style="padding:18px 20px"><div style="font:800 16px Montserrat,sans-serif;text-transform:uppercase">[Name]</div><div style="font-size:14px;color:#3A6AA8;font-weight:600;margin-top:4px">Dispatcher</div></div></div>
+      <div data-reveal="" data-reveal-delay="160" style="background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid #E1E8F3;transition:all .25s" style-hover="transform:translateY(-4px);border-color:#3A6AA8"><div style="aspect-ratio:1/1;background:linear-gradient(160deg,#021632,#000E24);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#B5C1D2"><dc-import name="Icon" icon="camera" size="30" stroke="1.5" hint-size="30px,30px"></dc-import><span style="font:700 11px Montserrat,sans-serif;letter-spacing:.14em">[TEAM PHOTO]</span></div><div style="padding:18px 20px"><div style="font:800 16px Montserrat,sans-serif;text-transform:uppercase">[Name]</div><div style="font-size:14px;color:#3A6AA8;font-weight:600;margin-top:4px">Updater</div></div></div>
+      <div data-reveal="" data-reveal-delay="240" style="background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid #E1E8F3;transition:all .25s" style-hover="transform:translateY(-4px);border-color:#3A6AA8"><div style="aspect-ratio:1/1;background:linear-gradient(160deg,#021632,#000E24);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#B5C1D2"><dc-import name="Icon" icon="camera" size="30" stroke="1.5" hint-size="30px,30px"></dc-import><span style="font:700 11px Montserrat,sans-serif;letter-spacing:.14em">[TEAM PHOTO]</span></div><div style="padding:18px 20px"><div style="font:800 16px Montserrat,sans-serif;text-transform:uppercase">[Name]</div><div style="font-size:14px;color:#3A6AA8;font-weight:600;margin-top:4px">Updater</div></div></div>
+      <div data-reveal="" data-reveal-delay="0" style="background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid #E1E8F3;transition:all .25s" style-hover="transform:translateY(-4px);border-color:#3A6AA8"><div style="aspect-ratio:1/1;background:linear-gradient(160deg,#021632,#000E24);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#B5C1D2"><dc-import name="Icon" icon="camera" size="30" stroke="1.5" hint-size="30px,30px"></dc-import><span style="font:700 11px Montserrat,sans-serif;letter-spacing:.14em">[TEAM PHOTO]</span></div><div style="padding:18px 20px"><div style="font:800 16px Montserrat,sans-serif;text-transform:uppercase">[Name]</div><div style="font-size:14px;color:#3A6AA8;font-weight:600;margin-top:4px">ELD Specialist</div></div></div>
+      <div data-reveal="" data-reveal-delay="80" style="background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid #E1E8F3;transition:all .25s" style-hover="transform:translateY(-4px);border-color:#3A6AA8"><div style="aspect-ratio:1/1;background:linear-gradient(160deg,#021632,#000E24);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#B5C1D2"><dc-import name="Icon" icon="camera" size="30" stroke="1.5" hint-size="30px,30px"></dc-import><span style="font:700 11px Montserrat,sans-serif;letter-spacing:.14em">[TEAM PHOTO]</span></div><div style="padding:18px 20px"><div style="font:800 16px Montserrat,sans-serif;text-transform:uppercase">[Name]</div><div style="font-size:14px;color:#3A6AA8;font-weight:600;margin-top:4px">Accounting</div></div></div>
+      <div data-reveal="" data-reveal-delay="160" style="background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid #E1E8F3;transition:all .25s" style-hover="transform:translateY(-4px);border-color:#3A6AA8"><div style="aspect-ratio:1/1;background:linear-gradient(160deg,#021632,#000E24);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#B5C1D2"><dc-import name="Icon" icon="camera" size="30" stroke="1.5" hint-size="30px,30px"></dc-import><span style="font:700 11px Montserrat,sans-serif;letter-spacing:.14em">[TEAM PHOTO]</span></div><div style="padding:18px 20px"><div style="font:800 16px Montserrat,sans-serif;text-transform:uppercase">[Name]</div><div style="font-size:14px;color:#3A6AA8;font-weight:600;margin-top:4px">Fleet Manager</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="About CTA" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))">
+  <div style="background:#021632;padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px);display:flex;flex-direction:column;gap:18px;align-items:flex-start">
+    <span style="font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#8DB8E8">FOR SHIPPERS &amp; BROKERS</span>
+    <h2 style="margin:0;font:800 clamp(32px,4vw,54px)/1 Montserrat,sans-serif;">Need capacity?</h2>
+    <a href="Request-Quote.dc.html" style="margin-top:8px;display:inline-flex;align-items:center;gap:12px;padding:19px 30px;background:#8DB8E8;color:#000E24;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none" style-hover="background:#2F5A92;color:#000E24">Request a Quote<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
+  </div>
+  <div style="position:relative;background:#8DB8E8;padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px);display:flex;flex-direction:column;gap:18px;align-items:flex-start;overflow:hidden">
+    <span style="position:relative;font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#24344F">FOR OWNER OPERATORS</span>
+    <h2 style="position:relative;margin:0;font:800 clamp(32px,4vw,54px)/1 Montserrat,sans-serif;">Ready to roll?</h2>
+    <a href="Drive-With-Us.dc.html" style="position:relative;margin-top:8px;display:inline-flex;align-items:center;gap:12px;padding:19px 30px;background:#000E24;color:#F3F6FA;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none" style-hover="background:#FFFFFF;color:#000E24">Drive With Us<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" mobile-bar="driver" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

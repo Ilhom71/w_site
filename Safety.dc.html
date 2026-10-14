@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Safety — Waynox Freight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+html,body{margin:0;background:#000E24;-webkit-font-smoothing:antialiased}
+a{color:#3A6AA8}
+a:hover{color:#2F5A92}
+*{box-sizing:border-box}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+<div style="font-family:Inter,system-ui,sans-serif;color:#F3F6FA;background:#000E24;overflow-x:clip">
+<dc-import name="SiteHeader" active="safety" hint-size="100%,1px"></dc-import>
+
+<section data-screen-label="Safety hero" style="position:relative;overflow:hidden;background:#000E24">
+  <div style="position:absolute;top:0;bottom:0;right:0;width:64%;opacity:.6"><image-slot id="safety-hero" shape="rect" placeholder="Hero photo — pre-trip inspection" src="https://images.unsplash.com/photo-1586191552066-d52dd1e3af86?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Esteban Zapata on Unsplash" credit-href="https://unsplash.com/@juanezl"></image-slot></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000E24 0%,#000E24 34%,rgba(0,14,36,0.5) 70%,rgba(0,14,36,0.25) 100%)"></div>
+  <div style="position:absolute;inset:auto 0 0 0;height:40%;pointer-events:none;background:linear-gradient(180deg,rgba(0,14,36,0),#000E24)"></div>
+  <div style="position:relative;pointer-events:none;max-width:1320px;margin:0 auto;padding:clamp(130px,14vw,190px) 28px clamp(56px,6vw,90px);display:flex;flex-direction:column;gap:20px">
+    <nav aria-label="Breadcrumb" style="pointer-events:auto;display:flex;gap:10px;font:600 13px Inter,sans-serif;color:#B5C1D2"><a href="Home.dc.html" style="color:#B5C1D2;text-decoration:none" style-hover="color:#F3F6FA">Home</a><span style="color:#8DB8E8">/</span><span style="color:#F3F6FA" aria-current="page">Safety</span></nav>
+    <h1 style="margin:0;font:800 clamp(30px,5.6vw,80px)/0.96 Montserrat,sans-serif;letter-spacing:-.015em;max-width:900px">Safety comes <span style="color:#8DB8E8">first</span>. Every mile.</h1>
+    <p style="margin:0;max-width:560px;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:#D3DBE6">Compliance, maintenance and cargo security — the standards behind every load we move.</p>
+  </div>
+  <a href="https://unsplash.com/@juanezl" target="_blank" style="position:absolute;right:16px;bottom:10px;z-index:2;font:500 11px Inter,sans-serif;color:rgba(255,255,255,0.6);text-decoration:none" style-hover="color:#F3F6FA">Photo: Esteban Zapata / Unsplash</a>
+</section>
+
+<section data-screen-label="Safety pillars" style="background:#F4F7FC;color:#24344F;padding:clamp(72px,9vw,112px) 0">
+  <div style="max-width:1320px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px">
+    <div data-reveal="" style="background:#FFFFFF;border:1px solid #E1E8F3;border-radius:18px;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:16px;transition:all .25s" style-hover="border-color:#3A6AA8;transform:translateY(-4px)">
+      <span style="width:64px;height:64px;border-radius:14px;border:1.5px solid #3A6AA8;color:#3A6AA8;display:flex;align-items:center;justify-content:center"><dc-import name="Icon" icon="users" size="32" stroke="1.5" hint-size="32px,32px"></dc-import></span>
+      <h2 style="margin:0;font:800 clamp(22px,2.2vw,28px) Montserrat,sans-serif;">Safety culture</h2>
+      <p style="margin:0;color:#55647C;line-height:1.7">[PLACEHOLDER — How safety is built into hiring, onboarding, dispatch decisions and day-to-day communication with drivers.]</p>
+    </div>
+    <div data-reveal="" data-reveal-delay="80" style="background:#FFFFFF;border:1px solid #E1E8F3;border-radius:18px;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:16px;transition:all .25s" style-hover="border-color:#3A6AA8;transform:translateY(-4px)">
+      <span style="width:64px;height:64px;border-radius:14px;border:1.5px solid #3A6AA8;color:#3A6AA8;display:flex;align-items:center;justify-content:center"><dc-import name="Icon" icon="doc" size="32" stroke="1.5" hint-size="32px,32px"></dc-import></span>
+      <h2 style="margin:0;font:800 clamp(22px,2.2vw,28px) Montserrat,sans-serif;">FMCSA / CSA compliance</h2>
+      <p style="margin:0;color:#55647C;line-height:1.7">[PLACEHOLDER — Hours-of-service and ELD practices, driver qualification files, drug &amp; alcohol program, CSA monitoring.]</p>
+    </div>
+    <div data-reveal="" data-reveal-delay="160" style="background:#FFFFFF;border:1px solid #E1E8F3;border-radius:18px;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:16px;transition:all .25s" style-hover="border-color:#3A6AA8;transform:translateY(-4px)">
+      <span style="width:64px;height:64px;border-radius:14px;border:1.5px solid #3A6AA8;color:#3A6AA8;display:flex;align-items:center;justify-content:center"><dc-import name="Icon" icon="wrench" size="32" stroke="1.5" hint-size="32px,32px"></dc-import></span>
+      <h2 style="margin:0;font:800 clamp(22px,2.2vw,28px) Montserrat,sans-serif;">Maintenance &amp; inspections</h2>
+      <p style="margin:0;color:#55647C;line-height:1.7">[PLACEHOLDER — Pre-trip / post-trip inspections, preventive maintenance schedule, equipment standards for owner operators.]</p>
+    </div>
+    <div data-reveal="" data-reveal-delay="240" style="background:#FFFFFF;border:1px solid #E1E8F3;border-radius:18px;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:16px;transition:all .25s" style-hover="border-color:#3A6AA8;transform:translateY(-4px)">
+      <span style="width:64px;height:64px;border-radius:14px;border:1.5px solid #3A6AA8;color:#3A6AA8;display:flex;align-items:center;justify-content:center"><dc-import name="Icon" icon="lock" size="32" stroke="1.5" hint-size="32px,32px"></dc-import></span>
+      <h2 style="margin:0;font:800 clamp(22px,2.2vw,28px) Montserrat,sans-serif;">Cargo security</h2>
+      <p style="margin:0;color:#55647C;line-height:1.7">[PLACEHOLDER — Seal procedures, secure parking policy, cargo insurance coverage, incident reporting.]</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Authority" style="background:#000E24;padding:clamp(72px,9vw,112px) 0">
+  <div data-reveal="" style="max-width:1320px;margin:0 auto;padding:0 28px">
+    <div style="position:relative;overflow:hidden;border:1.5px solid #8DB8E8;border-radius:20px;padding:clamp(28px,4vw,52px);display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;background:#021632;">
+      <div style="position:relative;display:flex;flex-direction:column;gap:14px;max-width:520px">
+        <div style="display:flex;align-items:center;gap:12px;font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#8DB8E8">OPERATING AUTHORITY</div>
+        <h2 style="margin:0;font:800 clamp(28px,3.4vw,44px)/1.05 Montserrat,sans-serif;">Verify us with FMCSA</h2>
+        <p style="margin:0;color:#B5C1D2;line-height:1.6">Look up our authority and safety record on the FMCSA SAFER system.</p>
+      </div>
+      <div style="position:relative;display:flex;flex-wrap:wrap;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:6px;padding:20px 26px;border:1px solid rgba(141,184,232,0.5);border-radius:12px;background:#000E24;min-width:220px"><span style="font:700 12px Montserrat,sans-serif;letter-spacing:.14em;color:#B5C1D2">MC#</span><span style="font:800 26px Montserrat,sans-serif">[MC NUMBER]</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:20px 26px;border:1px solid rgba(141,184,232,0.5);border-radius:12px;background:#000E24;min-width:220px"><span style="font:700 12px Montserrat,sans-serif;letter-spacing:.14em;color:#B5C1D2">USDOT#</span><span style="font:800 26px Montserrat,sans-serif">[DOT NUMBER]</span></div>
+        <a href="https://safer.fmcsa.dot.gov/" target="_blank" style="align-self:center;display:inline-flex;align-items:center;gap:10px;padding:18px 24px;background:#8DB8E8;color:#000E24;border-radius:6px;font:800 13px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none" style-hover="background:#2F5A92;color:#000E24">FMCSA SAFER<dc-import name="Icon" icon="arrow" size="16" hint-size="16px,16px"></dc-import></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Safety CTA" style="position:relative;background:#8DB8E8;overflow:hidden">
+  <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(30px,6vw,80px) 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+    <h2 style="margin:0;font:800 clamp(26px,3.4vw,44px)/1.05 Montserrat,sans-serif;">Questions about compliance?</h2>
+    <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:12px;padding:19px 30px;background:#000E24;color:#F3F6FA;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none" style-hover="background:#FFFFFF;color:#000E24">Contact us<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" mobile-bar="driver" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>FAQ — Waynox Freight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+html,body{margin:0;background:#000E24;-webkit-font-smoothing:antialiased}
+a{color:#3A6AA8}
+a:hover{color:#2F5A92}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div style="font-family:Inter,system-ui,sans-serif;color:#F3F6FA;background:#000E24;overflow-x:clip">
+<dc-import name="SiteHeader" active="faq" hint-size="100%,1px"></dc-import>
+
+<section data-screen-label="FAQ hero" style="position:relative;overflow:hidden;background:#000E24">
+  <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(130px,14vw,190px) 28px clamp(30px,4vw,56px);display:flex;flex-direction:column;gap:20px">
+    <nav aria-label="Breadcrumb" style="display:flex;gap:10px;font:600 13px Inter,sans-serif;color:#B5C1D2"><a href="Home.dc.html" style="color:#B5C1D2;text-decoration:none" style-hover="color:#F3F6FA">Home</a><span style="color:#8DB8E8">/</span><span style="color:#F3F6FA" aria-current="page">FAQ</span></nav>
+    <h1 style="margin:0;font:800 clamp(30px,5.6vw,80px)/0.96 Montserrat,sans-serif;letter-spacing:-.015em">Frequently asked <span style="color:#8DB8E8">questions</span></h1>
+  </div>
+</section>
+
+<section data-screen-label="FAQ tabs" style="background:#000E24;padding:0 0 clamp(72px,9vw,112px)">
+  <div style="max-width:980px;margin:0 auto;padding:0 28px">
+    <div role="tablist" style="display:inline-flex;padding:6px;border:1px solid rgba(141,184,232,0.45);border-radius:12px;gap:6px;margin-bottom:28px;background:#021632">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+        <button type="button" role="tab" onClick="{{ t.pick }}" style="height:50px;padding:0 26px;border:0;border-radius:8px;background:{{ t.bg }};color:{{ t.color }};font:800 13.5px Montserrat,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s">{{ t.label }}</button>
+      </sc-for>
+    </div>
+    <div style="border-top:1px solid rgba(169,182,204,0.16)">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid rgba(169,182,204,0.16)">
+          <button type="button" onClick="{{ q.toggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;background:none;border:0;color:#F3F6FA;text-align:left;cursor:pointer;font:800 clamp(15px,1.5vw,18px)/1.35 Montserrat,sans-serif;text-transform:uppercase">
+            <span>{{ q.q }}</span>
+            <span style="width:38px;height:38px;flex:none;border-radius:50%;border:1.5px solid #8DB8E8;display:flex;align-items:center;justify-content:center;color:#F3F6FA;background:{{ q.bg }};transform:rotate({{ q.rot }});transition:all .25s ease"><dc-import name="Icon" icon="plus" size="18" stroke="2.25" hint-size="18px,18px"></dc-import></span>
+          </button>
+          <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}"><p style="margin:-4px 0 26px;max-width:760px;color:#B5C1D2;line-height:1.7;font-size:16px">{{ q.a }}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:28px;border:1px solid rgba(141,184,232,0.45);border-radius:16px;background:#021632">
+      <span style="font:800 20px Montserrat,sans-serif;text-transform:uppercase">Still have a question?</span>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="{{ ctaHref }}" style="display:inline-flex;align-items:center;gap:10px;padding:16px 24px;background:#8DB8E8;color:#000E24;border-radius:6px;font:800 13px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none" style-hover="background:#2F5A92;color:#000E24">{{ ctaLabel }}<dc-import name="Icon" icon="arrow" size="16" hint-size="16px,16px"></dc-import></a>
+        <a href="Contact.dc.html" style="display:inline-flex;align-items:center;padding:14.5px 22px;border:1.5px solid rgba(255,255,255,0.5);color:#F3F6FA;border-radius:6px;font:800 13px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none" style-hover="border-color:#8DB8E8;color:#F3F6FA">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" mobile-bar="driver" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 'shippers', open: 0 };
+  componentDidMount() {
+    this.sync = () => { const h = location.hash.slice(1); if (h === 'drivers' || h === 'shippers') this.setState({ tab: h, open: 0 }); };
+    this.sync(); window.addEventListener('hashchange', this.sync);
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.sync); }
+  renderVals() {
+    const S = [
+      ['What equipment do you run?', "53' dry van for full truckload freight, and power only — our tractor and driver pulling your trailer."],
+      ['Do you haul Amazon-related freight?', 'Yes. Amazon-related freight is one of our core services, alongside dry van and power only.'],
+      ['Where do you operate?', 'Nationwide OTR across the US.'],
+      ['How do I get a quote?', 'Send your lane on the Request a Quote page, or call Operations. We reply with rates, availability and next steps.'],
+      ['Is dispatch available after hours?', 'Yes — dispatch is available 24/7.'],
+      ['What are your MC and USDOT numbers?', 'MC# [MC NUMBER] · USDOT# [DOT NUMBER].']
+    ];
+    const D = [
+      ['What do I need to qualify?', "A valid CDL-A, a minimum of 1 year of CDL-A experience, and your own truck — truck only (power only) or truck + 53' dry van. [OTHER REQUIREMENTS]"],
+      ['What percentage do I keep?', 'Owner operators keep 88% of gross.'],
+      ['How much can I gross per week?', 'Estimated weekly gross is $10K–$12K.* *Estimated weekly gross; actual results vary by lanes, miles and season and are not guaranteed.'],
+      ['How often do I get paid?', 'Weekly.'],
+      ['Is there a deposit or hidden fees?', 'No deposit. Everything is transparent — no unnecessary charges.'],
+      ['Are there bonuses?', 'Yes — a welcome bonus ([$ AMOUNT]) and a referral bonus ([$ AMOUNT]).'],
+      ['What freight will I haul?', 'Nationwide OTR dry van, power only and Amazon-related freight, with consistent freight and 24/7 dispatch.'],
+      ['How do I apply?', 'Submit the application on Drive With Us, call recruiting, or message us on Telegram or WhatsApp.']
+    ];
+    const tab = this.state.tab, data = tab === 'drivers' ? D : S;
+    const pickTab = (t) => () => { this.setState({ tab: t, open: 0 }); history.replaceState(null, '', '#' + t); };
+    return {
+      tabs: [['shippers', 'Shippers'], ['drivers', 'Drivers']].map(([k, label]) => ({ label, bg: tab === k ? '#3A6AA8' : 'transparent', color: tab === k ? '#FFFFFF' : '#A9B6CC', pick: pickTab(k) })),
+      faqs: data.map(([q, a], i) => ({ q, a, open: this.state.open === i, rot: this.state.open === i ? '45deg' : '0deg', bg: this.state.open === i ? '#3A6AA8' : 'transparent', toggle: () => this.setState((s) => ({ open: s.open === i ? -1 : i })) })),
+      ctaHref: tab === 'drivers' ? 'Drive-With-Us.dc.html#apply' : 'Request-Quote.dc.html',
+      ctaLabel: tab === 'drivers' ? 'Apply Now' : 'Request a Quote'
+    };
+  }
+}
+</script>
+</body>
+</html>

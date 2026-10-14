@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Services — Waynox Freight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+html,body{margin:0;background:#000E24;-webkit-font-smoothing:antialiased}
+a{color:#3A6AA8}
+a:hover{color:#2F5A92}
+*{box-sizing:border-box}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+<div style="font-family:Inter,system-ui,sans-serif;color:#F3F6FA;background:#000E24;overflow-x:clip">
+<dc-import name="SiteHeader" active="services" hint-size="100%,1px"></dc-import>
+
+<section data-screen-label="Services hero" style="position:relative;overflow:hidden;background:#000E24">
+  <div style="position:absolute;top:0;bottom:0;right:0;width:64%;opacity:.6"><image-slot id="services-hero" shape="rect" placeholder="Hero photo — fleet or highway" src="https://images.unsplash.com/photo-1591419478162-a4dd21b7ec0a?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Wolfgang Hasselmann on Unsplash" credit-href="https://unsplash.com/@wolfgang_hasselmann"></image-slot></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000E24 0%,#000E24 34%,rgba(0,14,36,0.5) 70%,rgba(0,14,36,0.25) 100%)"></div>
+  <div style="position:absolute;inset:auto 0 0 0;height:40%;pointer-events:none;background:linear-gradient(180deg,rgba(0,14,36,0),#000E24)"></div>
+  <div style="position:relative;pointer-events:none;max-width:1320px;margin:0 auto;padding:clamp(130px,14vw,190px) 28px clamp(56px,6vw,90px);display:flex;flex-direction:column;gap:20px">
+    <nav aria-label="Breadcrumb" style="pointer-events:auto;display:flex;gap:10px;font:600 13px Inter,sans-serif;color:#B5C1D2"><a href="Home.dc.html" style="color:#B5C1D2;text-decoration:none" style-hover="color:#F3F6FA">Home</a><span style="color:#8DB8E8">/</span><span style="color:#F3F6FA" aria-current="page">Services</span></nav>
+    <h1 style="margin:0;font:800 clamp(30px,5.6vw,80px)/0.96 Montserrat,sans-serif;letter-spacing:-.015em;max-width:900px">Freight services, <span style="color:#8DB8E8">nationwide</span></h1>
+    <p style="margin:0;max-width:560px;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:#D3DBE6">Dry van, power only and Amazon-related freight — OTR across the US, with dispatch on call 24/7.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;pointer-events:auto">
+      <a href="#dry-van" style="padding:12px 18px;border:1.5px solid rgba(141,184,232,0.7);border-radius:999px;color:#F3F6FA;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA">Dry Van</a>
+      <a href="#power-only" style="padding:12px 18px;border:1.5px solid rgba(141,184,232,0.7);border-radius:999px;color:#F3F6FA;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA">Power Only</a>
+      <a href="#amazon" style="padding:12px 18px;border:1.5px solid rgba(141,184,232,0.7);border-radius:999px;color:#F3F6FA;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA">Amazon-Related Freight</a>
+    </div>
+  </div>
+  <a href="https://unsplash.com/@wolfgang_hasselmann" target="_blank" style="position:absolute;right:16px;bottom:10px;z-index:2;font:500 11px Inter,sans-serif;color:rgba(255,255,255,0.6);text-decoration:none" style-hover="color:#F3F6FA">Photo: Wolfgang Hasselmann / Unsplash</a>
+</section>
+
+<section id="dry-van" data-screen-label="Dry Van" style="background:#F4F7FC;color:#24344F;padding:clamp(72px,9vw,112px) 0;scroll-margin-top:70px">
+  <div style="max-width:1320px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+    <div data-reveal="" style="flex:1 1 440px;min-width:0;position:relative">
+      <div style="position:absolute;left:-14px;bottom:-14px;width:45%;height:60%;background:#24344F;border-radius:16px"></div>
+      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,14,36,0.5)"><image-slot id="svc-dryvan" shape="rect" placeholder="Dry van photo — 53' trailer at a dock" src="https://images.unsplash.com/photo-1616432043562-3671ea2e5242?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Caleb Ruiter on Unsplash" credit-href="https://unsplash.com/@caleb_ruiter"></image-slot></div>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <span style="font:800 13px Montserrat,sans-serif;letter-spacing:.2em;color:#3A6AA8">01 — DRY VAN</span>
+      <h2 style="margin:0;font:800 clamp(32px,4vw,52px)/1 Montserrat,sans-serif;">53' full truckload</h2>
+      <p style="margin:0;color:#55647C;font-size:17px;line-height:1.65">Enclosed 53' dry van capacity for palletized, boxed and floor-loaded freight — moving OTR coast to coast.</p>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px 20px">
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#24344F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>53' dry van, FTL</li>
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#24344F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>Nationwide OTR lanes</li>
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#24344F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>One-time or recurring lanes</li>
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#24344F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>24/7 dispatch updates</li>
+      </ul>
+      <a href="Request-Quote.dc.html" style="align-self:flex-start;margin-top:8px;display:inline-flex;align-items:center;gap:12px;padding:18px 28px;background:#24344F;color:#FFFFFF;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s" style-hover="background:#000E24;color:#FFFFFF">Request a Quote<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
+    </div>
+  </div>
+</section>
+
+<section id="power-only" data-screen-label="Power Only" style="background:#000E24;padding:clamp(72px,9vw,112px) 0;scroll-margin-top:70px">
+  <div style="max-width:1320px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap-reverse;gap:56px;align-items:center">
+    <div data-reveal="" style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <span style="font:800 13px Montserrat,sans-serif;letter-spacing:.2em;color:#8DB8E8">02 — POWER ONLY</span>
+      <h2 style="margin:0;font:800 clamp(32px,4vw,52px)/1 Montserrat,sans-serif;">Your trailer. Our power.</h2>
+      <p style="margin:0;color:#B5C1D2;font-size:17px;line-height:1.65">Have trailers but need tractors and drivers? We hook up and haul — drop-and-hook, preloaded or pool moves.</p>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px 20px">
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#8DB8E8;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>Tractor + driver</li>
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#8DB8E8;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>Nationwide OTR</li>
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#8DB8E8;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>Flexible scheduling</li>
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#8DB8E8;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>24/7 dispatch</li>
+      </ul>
+      <a href="Request-Quote.dc.html" style="align-self:flex-start;margin-top:8px;display:inline-flex;align-items:center;gap:12px;padding:18px 28px;background:#8DB8E8;color:#000E24;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s" style-hover="background:#2F5A92;color:#000E24">Request a Quote<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="flex:1 1 440px;min-width:0;position:relative">
+      <div style="position:absolute;right:-14px;top:-14px;width:45%;height:60%;border:2px solid #8DB8E8;border-radius:16px"></div>
+      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,0,0,0.7)"><image-slot id="svc-poweronly" shape="rect" placeholder="Power only photo — tractor hooking a trailer" src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Sander Yigin on Unsplash" credit-href="https://unsplash.com/@sanderyigin"></image-slot></div>
+    </div>
+  </div>
+</section>
+
+<section id="amazon" data-screen-label="Amazon-Related Freight" style="background:#F4F7FC;color:#24344F;padding:clamp(72px,9vw,112px) 0;scroll-margin-top:70px">
+  <div style="max-width:1320px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+    <div data-reveal="" style="flex:1 1 440px;min-width:0;position:relative">
+      <div style="position:absolute;left:-14px;bottom:-14px;width:45%;height:60%;background:#24344F;border-radius:16px"></div>
+      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,14,36,0.5)"><image-slot id="svc-amazon" shape="rect" placeholder="Relay / linehaul photo (no third-party logos)" src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Gabriel Santos on Unsplash" credit-href="https://unsplash.com/@photogasan"></image-slot></div>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <span style="font:800 13px Montserrat,sans-serif;letter-spacing:.2em;color:#3A6AA8">03 — AMAZON-RELATED FREIGHT</span>
+      <h2 style="margin:0;font:800 clamp(32px,4vw,52px)/1 Montserrat,sans-serif;">Relay &amp; linehaul</h2>
+      <p style="margin:0;color:#55647C;font-size:17px;line-height:1.65">Amazon-related loads run with tight appointment discipline and round-the-clock dispatch oversight.</p>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px 20px">
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#24344F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>Amazon-related loads</li>
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#24344F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>Dry van or power only</li>
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600"><span style="width:22px;height:22px;border-radius:50%;background:#24344F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>24/7 dispatch coverage</li>
+        <li style="display:flex;gap:12px;align-items:center;font-weight:600;color:#7A8AA5"><span style="width:22px;height:22px;border-radius:50%;background:#24344F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>[PROGRAM DETAILS]</li>
+      </ul>
+      <a href="Request-Quote.dc.html" style="align-self:flex-start;margin-top:8px;display:inline-flex;align-items:center;gap:12px;padding:18px 28px;background:#24344F;color:#FFFFFF;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s" style-hover="background:#000E24;color:#FFFFFF">Request a Quote<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
+    </div>
+  </div>
+</section>
+
+<section id="coverage" data-screen-label="Coverage" style="position:relative;background:#021632;padding:clamp(72px,9vw,112px) 0;overflow:hidden;scroll-margin-top:70px">
+  <div style="max-width:1320px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:40px;align-items:center">
+    <div data-reveal="" style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:center;gap:12px;font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#8DB8E8">COVERAGE</div>
+      <h2 style="margin:0;font:800 clamp(32px,4.2vw,56px)/1 Montserrat,sans-serif;">Nationwide OTR coverage</h2>
+      <p style="margin:0;color:#B5C1D2;font-size:17px;line-height:1.65;max-width:440px">Long-haul capacity across the lower 48. Send us the lane — we'll confirm the truck.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:6px">
+        <a href="Request-Quote.dc.html" style="display:inline-flex;align-items:center;gap:12px;padding:18px 28px;background:#8DB8E8;color:#000E24;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none" style-hover="background:#2F5A92;color:#000E24">Request a Quote<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
+        <a href="tel:+13013061099" style="display:inline-flex;align-items:center;gap:10px;padding:16.5px 24px;border:1.5px solid rgba(255,255,255,0.55);color:#F3F6FA;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.06em;text-decoration:none" style-hover="border-color:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="phone" size="18" hint-size="18px,18px"></dc-import>(301) 306-1099</a>
+      </div>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="flex:1.5 1 520px;min-width:0"><img src="assets/us-map.svg" alt="Map of the contiguous United States" style="width:100%;height:auto;display:block;filter:drop-shadow(0 0 30px rgba(141,184,232,0.35))"></div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" mobile-bar="quote" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

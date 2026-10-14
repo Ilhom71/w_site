@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="position:relative;background:linear-gradient(180deg,#03204A 0%,#021632 45%,#000E24 100%);border:1.5px solid #8DB8E8;border-radius:22px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;gap:26px;font-family:Inter,system-ui,sans-serif;color:#F3F6FA;overflow:hidden;height:100%;box-sizing:border-box">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;position:relative">
+    <span style="font:800 15px Montserrat,sans-serif;letter-spacing:.18em;text-transform:uppercase">{{ label }}</span>
+    <sc-if value="{{ hasBadge }}" hint-placeholder-val="{{ true }}"><span style="background:#8DB8E8;padding:6px 12px"><span style="display:block;font:800 11px Montserrat,sans-serif;letter-spacing:.14em">{{ badge }}</span></span></sc-if>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:6px;position:relative">
+    <span style="font:800 clamp(56px,6vw,84px)/0.95 Montserrat,sans-serif;letter-spacing:-.03em">{{ rate }}</span>
+    <span style="font:800 15px Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#B5C1D2">{{ rateLabel }}</span>
+    <span style="margin-top:12px;align-self:flex-start;display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(141,184,232,0.55);border-radius:10px;font:800 15px Montserrat,sans-serif;background:rgba(141,184,232,0.1)">{{ gross }}</span>
+  </div>
+  <div style="height:1px;background:rgba(169,182,204,0.18)"></div>
+  <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px 20px">
+    <sc-for list="{{ items }}" as="it" hint-placeholder-count="8">
+      <li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.4;color:#E4EAF3"><span style="width:22px;height:22px;flex:none;border-radius:50%;background:#8DB8E8;display:flex;align-items:center;justify-content:center;margin-top:-1px"><dc-import name="Icon" icon="check" size="13" stroke="3" hint-size="13px,13px"></dc-import></span>{{ it }}</li>
+    </sc-for>
+  </ul>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:6px">
+    <a href="{{ primaryHref }}" style="flex:1 1 220px;display:flex;align-items:center;justify-content:center;gap:10px;height:58px;background:#8DB8E8;color:#000E24;border-radius:8px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s ease;" style-hover="background:#2F5A92;color:#000E24;transform:translateY(-2px)">{{ primaryLabel }}<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
+    <a href="{{ secondaryHref }}" style="flex:1 1 140px;display:flex;align-items:center;justify-content:center;height:58px;border:1.5px solid rgba(255,255,255,0.5);color:#F3F6FA;border-radius:8px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s ease" style-hover="border-color:#8DB8E8;color:#F3F6FA;background:rgba(141,184,232,0.12)">{{ secondaryLabel }}</a>
+  </div>
+  <sc-if value="{{ hasFoot }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:12px;line-height:1.5;color:#B5C1D2">{{ footnote }}</p></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:560,&quot;height&quot;:760},&quot;label&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Owner Operator&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;badge&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;NOW HIRING&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;rate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;88%&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;rateLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;of gross&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;gross&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;$10K–$12K weekly gross*&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;items&quot;:{&quot;editor&quot;:null,&quot;default&quot;:[&quot;No deposit&quot;,&quot;Fuel card discount&quot;,&quot;Weekly pay&quot;,&quot;24/7 dispatch&quot;,&quot;Consistent freight&quot;,&quot;Welcome bonus&quot;,&quot;Referral bonus&quot;,&quot;Everything transparent — no unnecessary charges&quot;],&quot;tsType&quot;:&quot;string[]&quot;},&quot;primaryLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Apply as Owner Operator&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;primaryHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#apply&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;secondaryLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;View details&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;secondaryHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#benefits&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;footnote&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;*Estimated weekly gross; actual results vary by lanes, miles and season and are not guaranteed.&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const badge = p.badge ?? 'NOW HIRING';
+    const footnote = p.footnote ?? '*Estimated weekly gross; actual results vary by lanes, miles and season and are not guaranteed.';
+    return {
+      label: p.label ?? 'Owner Operator', rate: p.rate ?? '88%', rateLabel: p.rateLabel ?? 'of gross',
+      gross: p.gross ?? '$10K–$12K weekly gross*', badge, hasBadge: !!badge, footnote, hasFoot: !!footnote,
+      items: p.items ?? ['No deposit', 'Fuel card discount', 'Weekly pay', '24/7 dispatch', 'Consistent freight', 'Welcome bonus', 'Referral bonus', 'Everything transparent — no unnecessary charges'],
+      primaryLabel: p.primaryLabel ?? 'Apply as Owner Operator', primaryHref: p.primaryHref ?? '#apply',
+      secondaryLabel: p.secondaryLabel ?? 'View details', secondaryHref: p.secondaryHref ?? '#benefits'
+    };
+  }
+}
+</script>
+</body>
+</html>
