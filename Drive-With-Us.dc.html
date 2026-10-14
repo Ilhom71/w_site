@@ -117,8 +117,7 @@ input,select,textarea,button{font-family:inherit}
       <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
         <li style="display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #EEF2F8;font-size:16px;font-weight:600"><span style="color:#3A6AA8;display:flex"><dc-import name="Icon" icon="id" size="26" hint-size="26px,26px"></dc-import></span>Valid CDL-A</li>
         <li style="display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #EEF2F8;font-size:16px;font-weight:600"><span style="color:#3A6AA8;display:flex"><dc-import name="Icon" icon="calendar" size="26" hint-size="26px,26px"></dc-import></span>Minimum 1 year CDL-A experience</li>
-        <li style="display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #EEF2F8;font-size:16px;font-weight:600"><span style="color:#3A6AA8;display:flex"><dc-import name="Icon" icon="truck" size="26" hint-size="26px,26px"></dc-import></span>Your own truck (Power Only) or truck + 53' dry van trailer</li>
-        <li style="display:flex;gap:16px;align-items:center;padding:16px 0;font-size:16px;font-weight:600;color:#7A8AA5"><span style="color:#3A6AA8;display:flex"><dc-import name="Icon" icon="doc" size="26" hint-size="26px,26px"></dc-import></span>[OTHER REQUIREMENTS]</li>
+        <li style="display:flex;gap:16px;align-items:center;padding:16px 0;font-size:16px;font-weight:600"><span style="color:#3A6AA8;display:flex"><dc-import name="Icon" icon="truck" size="26" hint-size="26px,26px"></dc-import></span>Your own truck (Power Only) or truck + 53' dry van trailer</li>
       </ul>
     </div>
     <div data-reveal="" data-reveal-delay="100" style="background:#000E24;color:#F3F6FA;border-radius:18px;padding:clamp(26px,3vw,40px);position:relative;overflow:hidden">
@@ -275,7 +274,7 @@ input,select,textarea,button{font-family:inherit}
 </section>
 
 <div style="background:#000000;border-bottom:1px solid rgba(169,182,204,0.12)">
-  <p style="max-width:1320px;margin:0 auto;padding:22px 28px;font-size:12px;line-height:1.6;color:#B5C1D2">Recruiting disclaimer: Waynox Freight contracts with independent owner operators. Weekly gross figures are estimates; actual results vary by lanes, miles and season and are not guaranteed. Compensation is shown before fuel and operating expenses. All applicants are subject to qualification review. [ADDITIONAL DISCLAIMER TEXT] <a href="Legal.dc.html#recruiting" style="color:#8DB8E8">Read the full Recruiting Disclaimer</a>.</p>
+  <p style="max-width:1320px;margin:0 auto;padding:22px 28px;font-size:12px;line-height:1.6;color:#B5C1D2">Recruiting disclaimer: Waynox Freight contracts with independent owner operators. Weekly gross figures are estimates; actual results vary by lanes, miles and season and are not guaranteed. Compensation is shown before fuel and operating expenses. All applicants are subject to qualification review. <a href="Legal.dc.html#recruiting" style="color:#8DB8E8">Read the full Recruiting Disclaimer</a>.</p>
 </div>
 <dc-import name="SiteFooter" mobile-bar="driver" apply-href="#apply" hint-size="100%,420px"></dc-import>
 </div>
@@ -303,7 +302,7 @@ class Component extends DCLogic {
     const pills = (key, list) => list.map((label) => { const on = F.v[key] === label; return { label, bg: on ? '#3A6AA8' : 'transparent', bd: on ? '#3A6AA8' : '#22385A', pick: () => this.setF(key, label) }; });
     const usd = (x) => '$' + Math.round(x).toLocaleString('en-US');
     const faqData = [
-      ['What do I need to qualify?', "A valid CDL-A, a minimum of 1 year of CDL-A experience, and your own truck — truck only for power only, or truck + 53' dry van trailer. [OTHER REQUIREMENTS]"],
+      ['What do I need to qualify?', "A valid CDL-A, a minimum of 1 year of CDL-A experience, and your own truck — truck only for power only, or truck + 53' dry van trailer."],
       ['What percentage do I keep?', 'You keep 88% of gross.'],
       ['How much can I gross per week?', 'Estimated weekly gross is $10K–$12K.* *Estimated weekly gross; actual results vary by lanes, miles and season and are not guaranteed.'],
       ['How and when do I get paid?', 'Weekly pay.'],
