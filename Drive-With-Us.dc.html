@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./lead.js"></script>
 </head>
 <body>
 <x-dc>
@@ -235,6 +236,7 @@ input,select,textarea,button{font-family:inherit}
             <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer"><input type="checkbox" onChange="{{ f.consent.on }}" style="width:20px;height:20px;margin:1px 0 0;accent-color:#8DB8E8;flex:none"><span style="font-size:13.5px;line-height:1.55;color:#B5C1D2">I agree to receive calls and SMS from Waynox Freight about my application at the number provided. Consent is not a condition of hiring. Message and data rates may apply; reply STOP to opt out. See <a href="Legal.dc.html#sms" style="color:#8DB8E8">SMS Terms</a> and <a href="Legal.dc.html#privacy" style="color:#8DB8E8">Privacy Policy</a>. <span style="color:#8DB8E8">*</span></span></label>
             <sc-if value="{{ f.consent.has }}" hint-placeholder-val="{{ false }}"><span style="color:#FF6B6B;font-size:12.5px;padding-left:32px">{{ f.consent.err }}</span></sc-if>
           </div>
+          <sc-if value="{{ sendErr }}" hint-placeholder-val="{{ false }}"><div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:8px;background:#FDECEC;color:#B3262B;font-size:14px;font-weight:600"><dc-import name="Icon" icon="alert" size="18" hint-size="18px,18px"></dc-import>Couldn’t send right now — please try again or call (301) 306-1099.</div></sc-if>
           <button type="submit" style="grid-column:1/-1;height:62px;border:0;border-radius:8px;background:#8DB8E8;color:#000E24;font:800 15px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;opacity:{{ btnOpacity }};display:flex;align-items:center;justify-content:center;gap:12px;transition:all .2s" style-hover="background:#2F5A92">{{ btnLabel }}<dc-import name="Icon" icon="send" size="18" hint-size="18px,18px"></dc-import></button>
         </form>
       </sc-if>
@@ -317,10 +319,10 @@ class Component extends DCLogic {
       gets: ['88% of gross', 'No deposit', 'Fuel card discount', 'Weekly pay', '24/7 dispatch', 'Consistent freight', 'Welcome & referral bonuses', 'Everything transparent — no unnecessary charges'],
       f, faqs, langOpts: pills('lang', ['English', 'Русский', 'O‘zbek', 'Other']), contactOpts: pills('contact', ['Call', 'Text', 'Telegram', 'WhatsApp']),
       expLow: F.v.exp === 'Less than 1 year',
-      done: F.status === 'success', notDone: F.status !== 'success',
+      sendErr: !!F.sendErr, done: F.status === 'success', notDone: F.status !== 'success',
       firstName: ((F.v.name || '').trim().split(' ')[0]) || 'driver', contactVia: (F.v.contact || 'Call').toLowerCase() === 'call' ? 'phone' : F.v.contact,
       btnLabel: loading ? 'Submitting…' : 'Submit Application', btnOpacity: loading ? 0.7 : 1,
-      submit: (e) => { e.preventDefault(); if (loading) return; if (n) { this.setState((s) => ({ form: { ...s.form, tried: true } })); return; } this.setState((s) => ({ form: { ...s.form, status: 'loading' } })); this.t = setTimeout(() => this.setState((s) => ({ form: { ...s.form, status: 'success' } })), 1500); },
+      submit: (e) => { e.preventDefault(); if (loading) return; if (n) { this.setState((s) => ({ form: { ...s.form, tried: true } })); return; } this.setState((s) => ({ form: { ...s.form, status: 'loading', sendErr: false } })); window.sendLead('drive', F.v).then((ok) => this.setState((s) => ({ form: { ...s.form, status: ok ? 'success' : 'idle', sendErr: !ok } }))); },
       reset: () => this.setState({ form: this.blank() })
     };
   }

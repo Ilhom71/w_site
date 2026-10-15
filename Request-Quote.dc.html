@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./lead.js"></script>
 </head>
 <body>
 <x-dc>
@@ -93,6 +94,7 @@ input,select,textarea,button{font-family:inherit}
             <sc-if value="{{ f.consent.has }}" hint-placeholder-val="{{ false }}"><span style="color:#D33A3F;font-size:12.5px;padding-left:32px">{{ f.consent.err }}</span></sc-if>
           </div>
           <sc-if value="{{ showSummary }}" hint-placeholder-val="{{ false }}"><div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:8px;background:#FDECEC;color:#B3262B;font-size:14px;font-weight:600"><dc-import name="Icon" icon="alert" size="18" hint-size="18px,18px"></dc-import>{{ errCount }}</div></sc-if>
+          <sc-if value="{{ sendErr }}" hint-placeholder-val="{{ false }}"><div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:8px;background:#FDECEC;color:#B3262B;font-size:14px;font-weight:600"><dc-import name="Icon" icon="alert" size="18" hint-size="18px,18px"></dc-import>Couldn’t send right now — please try again or call (301) 306-1099.</div></sc-if>
           <button type="submit" style="grid-column:1/-1;height:62px;border:0;border-radius:8px;background:#24344F;color:#FFFFFF;font:800 15px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;opacity:{{ btnOpacity }};display:flex;align-items:center;justify-content:center;gap:12px;transition:all .2s" style-hover="background:#000E24">{{ btnLabel }}<dc-import name="Icon" icon="arrow" size="20" hint-size="20px,20px"></dc-import></button>
         </form>
       </sc-if>
@@ -193,11 +195,11 @@ class Component extends DCLogic {
       f, contactOpts, faqs,
       asidePos: (this.props.stickySidebar ?? true) ? 'sticky' : 'static',
       expLow: F.v.exp === 'Less than 1 year',
-      done: F.status === 'success', notDone: F.status !== 'success',
+      sendErr: !!F.sendErr, done: F.status === 'success', notDone: F.status !== 'success',
       sum: { name: (F.v.name || '').trim() || '—', exp: F.v.exp || '', equip: F.v.equip || '' },
       showSummary: F.tried && n > 0, errCount: n === 1 ? 'Please fix 1 field above.' : `Please fix ${n} fields above.`,
       btnLabel: loading ? 'Submitting…' : 'Submit Application', btnOpacity: loading ? 0.7 : 1,
-      submit: (e) => { e.preventDefault(); if (loading) return; if (n) { this.setState((s) => ({ form: { ...s.form, tried: true } })); return; } this.setState((s) => ({ form: { ...s.form, status: 'loading' } })); this.t = setTimeout(() => this.setState((s) => ({ form: { ...s.form, status: 'success' } })), 1500); },
+      submit: (e) => { e.preventDefault(); if (loading) return; if (n) { this.setState((s) => ({ form: { ...s.form, tried: true } })); return; } this.setState((s) => ({ form: { ...s.form, status: 'loading', sendErr: false } })); window.sendLead('application', F.v).then((ok) => this.setState((s) => ({ form: { ...s.form, status: ok ? 'success' : 'idle', sendErr: !ok } }))); },
       reset: () => this.setState({ form: this.blank() })
     };
   }

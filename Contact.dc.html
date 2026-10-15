@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./lead.js"></script>
 </head>
 <body>
 <x-dc>
@@ -98,6 +99,7 @@ input,select,textarea,button{font-family:inherit}
           <label style="display:flex;flex-direction:column;gap:8px"><span style="font:600 13.5px Inter,sans-serif;color:#22324D">Email <span style="color:#3A6AA8">*</span></span><input type="email" autocomplete="email" onChange="{{ f.email.on }}" onBlur="{{ f.email.blur }}" placeholder="you@company.com" style="width:100%;height:52px;padding:0 16px;background:#FFFFFF;color:#24344F;border:1px solid {{ f.email.border }};border-radius:8px;font:500 15px Inter,sans-serif;outline:none" style-focus="border-color:#3A6AA8;"><sc-if value="{{ f.email.has }}" hint-placeholder-val="{{ false }}"><span style="color:#D33A3F;font-size:12.5px">{{ f.email.err }}</span></sc-if></label>
           <label style="display:flex;flex-direction:column;gap:8px;grid-column:1/-1"><span style="font:600 13.5px Inter,sans-serif;color:#22324D">Phone</span><input type="tel" autocomplete="tel" onChange="{{ f.phone.on }}" onBlur="{{ f.phone.blur }}" placeholder="(555) 555-5555" style="width:100%;height:52px;padding:0 16px;background:#FFFFFF;color:#24344F;border:1px solid {{ f.phone.border }};border-radius:8px;font:500 15px Inter,sans-serif;outline:none" style-focus="border-color:#3A6AA8;"><sc-if value="{{ f.phone.has }}" hint-placeholder-val="{{ false }}"><span style="color:#D33A3F;font-size:12.5px">{{ f.phone.err }}</span></sc-if></label>
           <label style="display:flex;flex-direction:column;gap:8px;grid-column:1/-1"><span style="font:600 13.5px Inter,sans-serif;color:#22324D">Message <span style="color:#3A6AA8">*</span></span><textarea rows="5" onChange="{{ f.message.on }}" onBlur="{{ f.message.blur }}" placeholder="How can we help?" style="width:100%;padding:14px 16px;background:#FFFFFF;color:#24344F;border:1px solid {{ f.message.border }};border-radius:8px;font:500 15px/1.5 Inter,sans-serif;outline:none;resize:vertical" style-focus="border-color:#3A6AA8;"></textarea><sc-if value="{{ f.message.has }}" hint-placeholder-val="{{ false }}"><span style="color:#D33A3F;font-size:12.5px">{{ f.message.err }}</span></sc-if></label>
+          <sc-if value="{{ sendErr }}" hint-placeholder-val="{{ false }}"><div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:8px;background:#FDECEC;color:#B3262B;font-size:14px;font-weight:600"><dc-import name="Icon" icon="alert" size="18" hint-size="18px,18px"></dc-import>Couldn’t send right now — please try again or call (301) 306-1099.</div></sc-if>
           <button type="submit" style="grid-column:1/-1;height:60px;border:0;border-radius:8px;background:#24344F;color:#FFFFFF;font:800 15px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;opacity:{{ btnOpacity }};display:flex;align-items:center;justify-content:center;gap:12px;transition:all .2s" style-hover="background:#000E24">{{ btnLabel }}<dc-import name="Icon" icon="send" size="18" hint-size="18px,18px"></dc-import></button>
         </form>
       </sc-if>
@@ -130,9 +132,9 @@ class Component extends DCLogic {
     const roleOpts = ['Shipper / Broker', 'Driver', 'Other'].map((label) => { const on = F.v.role === label; return { label, bg: on ? '#000E24' : '#FFFFFF', color: on ? '#FFFFFF' : '#22324D', bd: on ? '#000E24' : '#CFD9E8', pick: () => this.setF('role', label) }; });
     const loading = F.status === 'loading';
     return {
-      f, roleOpts, done: F.status === 'success', notDone: F.status !== 'success',
+      f, roleOpts, sendErr: !!F.sendErr, done: F.status === 'success', notDone: F.status !== 'success',
       btnLabel: loading ? 'Sending…' : 'Send Message', btnOpacity: loading ? 0.7 : 1,
-      submit: (e) => { e.preventDefault(); if (loading) return; if (n) { this.setState((s) => ({ form: { ...s.form, tried: true } })); return; } this.setState((s) => ({ form: { ...s.form, status: 'loading' } })); this.t = setTimeout(() => this.setState((s) => ({ form: { ...s.form, status: 'success' } })), 1300); },
+      submit: (e) => { e.preventDefault(); if (loading) return; if (n) { this.setState((s) => ({ form: { ...s.form, tried: true } })); return; } this.setState((s) => ({ form: { ...s.form, status: 'loading', sendErr: false } })); window.sendLead('contact', F.v).then((ok) => this.setState((s) => ({ form: { ...s.form, status: ok ? 'success' : 'idle', sendErr: !ok } }))); },
       reset: () => this.setState({ form: this.blank() })
     };
   }
