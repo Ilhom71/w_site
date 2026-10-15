@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-<script src="./lead.js"></script>
+<script src="./js/support.js"></script>
+<script src="./js/lead.js"></script>
 </head>
 <body>
 <x-dc>
@@ -19,13 +19,12 @@ a:hover{color:#2F5A92}
 *{box-sizing:border-box}
 input,select,textarea,button{font-family:inherit}
 </style>
-<script src="./image-slot.js"></script>
 </helmet>
 <div style="font-family:Inter,system-ui,sans-serif;color:#F3F6FA;background:#000E24;overflow-x:clip">
 <dc-import name="SiteHeader" active="services" hint-size="100%,1px"></dc-import>
 
 <section data-screen-label="Quote hero" style="position:relative;overflow:hidden;background:#000E24">
-  <div style="position:absolute;top:0;bottom:0;right:0;width:64%;opacity:.6"><image-slot id="quote-hero" shape="rect" placeholder="Hero photo — loading dock or trailer at a warehouse" src="https://images.unsplash.com/photo-1591768793355-74d04bb6608f?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Zetong Li on Unsplash" credit-href="https://unsplash.com/@zetong"></image-slot></div>
+  <div style="position:absolute;top:0;bottom:0;right:0;width:64%;opacity:.6"><img src="assets/img/dry-van-cascadia.jpg" alt="Freightliner Cascadia with a 53-foot dry van" fetchpriority="high" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"></div>
   <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000E24 0%,#000E24 34%,rgba(0,14,36,0.55) 70%,rgba(0,14,36,0.3) 100%)"></div>
   <div style="position:absolute;inset:auto 0 0 0;height:40%;pointer-events:none;background:linear-gradient(180deg,rgba(0,14,36,0),#000E24)"></div>
   <div style="position:relative;pointer-events:none;max-width:1320px;margin:0 auto;padding:clamp(130px,14vw,190px) 28px clamp(56px,6vw,84px);display:flex;flex-direction:column;gap:20px">
@@ -36,7 +35,6 @@ input,select,textarea,button{font-family:inherit}
     <h1 style="margin:0;font:800 clamp(30px,5.6vw,80px)/0.96 Montserrat,sans-serif;letter-spacing:-.015em;max-width:880px;text-wrap:balance">Join <span style="color:#8DB8E8">our team</span></h1>
     <p style="margin:0;max-width:560px;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:#D3DBE6;text-wrap:pretty">CDL-A drivers: send your details and a recruiter will contact you about next steps.</p>
   </div>
-  <a href="https://unsplash.com/@zetong" target="_blank" style="position:absolute;right:16px;bottom:10px;z-index:2;font:500 11px Inter,sans-serif;color:rgba(255,255,255,0.6);text-decoration:none" style-hover="color:#F3F6FA">Photo: Zetong Li / Unsplash</a>
 </section>
 
 <section data-screen-label="Talk to operations" style="background:#021632;border-top:1px solid rgba(141,184,232,0.35);border-bottom:1px solid rgba(141,184,232,0.35)">
@@ -46,7 +44,7 @@ input,select,textarea,button{font-family:inherit}
     <a href="tel:+13013061099" style="display:flex;align-items:center;gap:12px;color:#F3F6FA;text-decoration:none;font:800 18px Montserrat,sans-serif;white-space:nowrap" style-hover="color:#8DB8E8"><span style="width:40px;height:40px;border-radius:50%;background:#8DB8E8;display:flex;align-items:center;justify-content:center;color:#000E24"><dc-import name="Icon" icon="phone" size="18" hint-size="18px,18px"></dc-import></span>(301) 306-1099</a>
     <a href="mailto:waynox.safety@gmail.com" style="display:flex;align-items:center;gap:10px;color:#D3DBE6;text-decoration:none;font:600 15px Inter,sans-serif;white-space:nowrap" style-hover="color:#F3F6FA"><span style="color:#8DB8E8;display:flex"><dc-import name="Icon" icon="mail" size="18" hint-size="18px,18px"></dc-import></span>waynox.safety@gmail.com</a>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-left:auto;align-items:center">
-      <a href="https://t.me/" target="_blank" style="height:44px;padding:0 16px;border-radius:8px;border:1px solid rgba(141,184,232,0.6);display:flex;align-items:center;gap:8px;color:#F3F6FA;text-decoration:none;font:700 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:all .2s" style-hover="background:#8DB8E8;color:#000E24"><dc-import name="Icon" icon="telegram" size="17" hint-size="17px,17px"></dc-import>Telegram</a>
+      <a href="https://t.me/WaynoxTeam" target="_blank" style="height:44px;padding:0 16px;border-radius:8px;border:1px solid rgba(141,184,232,0.6);display:flex;align-items:center;gap:8px;color:#F3F6FA;text-decoration:none;font:700 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:all .2s" style-hover="background:#8DB8E8;color:#000E24"><dc-import name="Icon" icon="telegram" size="17" hint-size="17px,17px"></dc-import>Telegram</a>
       <a href="https://wa.me/" target="_blank" style="height:44px;padding:0 16px;border-radius:8px;border:1px solid rgba(141,184,232,0.6);display:flex;align-items:center;gap:8px;color:#F3F6FA;text-decoration:none;font:700 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:all .2s" style-hover="background:#8DB8E8;color:#000E24"><dc-import name="Icon" icon="whatsapp" size="17" hint-size="17px,17px"></dc-import>WhatsApp</a>
       <span style="height:44px;display:flex;align-items:center;background:#8DB8E8;padding:0 18px;margin-left:6px"><span style="display:flex;align-items:center;gap:8px;font:800 13px Montserrat,sans-serif;letter-spacing:.1em;color:#000E24"><span style="width:8px;height:8px;border-radius:50%;background:#2BD67B"></span>24/7 DISPATCH</span></span>
     </div>
@@ -90,7 +88,7 @@ input,select,textarea,button{font-family:inherit}
           <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:8px"><span style="font:600 13.5px Inter,sans-serif;color:#22324D">Preferred contact</span><div style="display:flex;flex-wrap:wrap;gap:10px"><sc-for list="{{ contactOpts }}" as="o" hint-placeholder-count="4"><button type="button" onClick="{{ o.pick }}" style="height:46px;padding:0 20px;border-radius:8px;border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.color }};font:600 14px Inter,sans-serif;cursor:pointer;transition:all .15s">{{ o.label }}</button></sc-for></div></div>
           <label style="display:flex;flex-direction:column;gap:8px;grid-column:1/-1"><span style="font:600 13.5px Inter,sans-serif;color:#22324D">Notes <span style="font-weight:500;color:#7A8AA5">(optional)</span></span><textarea rows="4" onChange="{{ f.notes.on }}" placeholder="Anything we should know — preferred lanes, home time, questions…" style="width:100%;padding:14px 16px;background:#FFFFFF;color:#24344F;border:1px solid #CFD9E8;border-radius:8px;font:500 15px/1.5 Inter,sans-serif;outline:none;resize:vertical" style-focus="border-color:#3A6AA8;"></textarea></label>
           <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:8px">
-            <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer"><input type="checkbox" onChange="{{ f.consent.on }}" style="width:20px;height:20px;margin:1px 0 0;accent-color:#3A6AA8;flex:none"><span style="font-size:13.5px;line-height:1.55;color:#55647C">I agree to receive calls and SMS from Waynox Freight about my application at the number provided. Consent is not a condition of hiring. Message and data rates may apply; reply STOP to opt out. See <a href="Legal.dc.html#privacy" style="color:#3A6AA8;font-weight:600">Privacy Policy</a> and <a href="Legal.dc.html#sms" style="color:#3A6AA8;font-weight:600">SMS Terms</a>. <span style="color:#3A6AA8">*</span></span></label>
+            <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer"><input type="checkbox" onChange="{{ f.consent.on }}" style="width:20px;height:20px;margin:1px 0 0;accent-color:#3A6AA8;flex:none"><span style="font-size:13.5px;line-height:1.55;color:#55647C">I agree to receive calls and SMS from Waynox Freight LLC about my application at the number provided. Consent is not a condition of hiring. Message and data rates may apply; reply STOP to opt out. See <a href="Legal.dc.html#privacy" style="color:#3A6AA8;font-weight:600">Privacy Policy</a> and <a href="Legal.dc.html#sms" style="color:#3A6AA8;font-weight:600">SMS Terms</a>. <span style="color:#3A6AA8">*</span></span></label>
             <sc-if value="{{ f.consent.has }}" hint-placeholder-val="{{ false }}"><span style="color:#D33A3F;font-size:12.5px;padding-left:32px">{{ f.consent.err }}</span></sc-if>
           </div>
           <sc-if value="{{ showSummary }}" hint-placeholder-val="{{ false }}"><div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:8px;background:#FDECEC;color:#B3262B;font-size:14px;font-weight:600"><dc-import name="Icon" icon="alert" size="18" hint-size="18px,18px"></dc-import>{{ errCount }}</div></sc-if>
@@ -123,7 +121,7 @@ input,select,textarea,button{font-family:inherit}
         <a href="mailto:waynox.safety@gmail.com" style="position:relative;display:flex;align-items:center;gap:12px;color:#F3F6FA;text-decoration:none;font-size:15px;font-weight:600" style-hover="color:#000E24"><dc-import name="Icon" icon="mail" size="18" hint-size="18px,18px"></dc-import>waynox.safety@gmail.com</a>
         <span style="position:relative;display:flex;align-items:center;gap:12px;font-size:15px;font-weight:600"><dc-import name="Icon" icon="clock" size="18" hint-size="18px,18px"></dc-import>Office Mon–Fri 8am–6pm · Dispatch 24/7</span>
         <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px">
-          <a href="https://t.me/" target="_blank" style="height:46px;border-radius:8px;background:#000E24;color:#F3F6FA;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#FFFFFF;color:#000E24"><dc-import name="Icon" icon="telegram" size="16" hint-size="16px,16px"></dc-import>Telegram</a>
+          <a href="https://t.me/WaynoxTeam" target="_blank" style="height:46px;border-radius:8px;background:#000E24;color:#F3F6FA;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#FFFFFF;color:#000E24"><dc-import name="Icon" icon="telegram" size="16" hint-size="16px,16px"></dc-import>Telegram</a>
           <a href="https://wa.me/" target="_blank" style="height:46px;border-radius:8px;background:#000E24;color:#F3F6FA;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#FFFFFF;color:#000E24"><dc-import name="Icon" icon="whatsapp" size="16" hint-size="16px,16px"></dc-import>WhatsApp</a>
         </div>
       </div>
@@ -187,7 +185,7 @@ class Component extends DCLogic {
       ['What do I need to qualify?', "A valid CDL-A, a minimum of 1 year of CDL-A experience, and your own truck — truck only (Power Only) or truck + 53' dry van."],
       ['What percentage do I keep?', 'Owner operators keep 88% of gross.'],
       ['How and when do I get paid?', 'Weekly pay.'],
-      ['Is there a deposit or hidden fees?', 'No deposit. Everything is transparent — no unnecessary charges. You also get a fuel card discount.']
+      ['Are there hidden fees?', 'No. Everything is transparent — no unnecessary charges. You also get a fuel card discount.']
     ];
     const faqs = faqData.map(([q, a], i) => ({ q, a, open: this.state.open === i, rot: this.state.open === i ? '45deg' : '0deg', bg: this.state.open === i ? '#3A6AA8' : 'transparent', toggle: () => this.setState((s) => ({ open: s.open === i ? -1 : i })) }));
     const loading = F.status === 'loading';

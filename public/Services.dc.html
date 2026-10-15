@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="./js/support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -17,13 +17,12 @@ a{color:#3A6AA8}
 a:hover{color:#2F5A92}
 *{box-sizing:border-box}
 </style>
-<script src="./image-slot.js"></script>
 </helmet>
 <div style="font-family:Inter,system-ui,sans-serif;color:#F3F6FA;background:#000E24;overflow-x:clip">
 <dc-import name="SiteHeader" active="services" hint-size="100%,1px"></dc-import>
 
 <section data-screen-label="Services hero" style="position:relative;overflow:hidden;background:#000E24">
-  <div style="position:absolute;top:0;bottom:0;right:0;width:64%;opacity:.6"><image-slot id="services-hero" shape="rect" placeholder="Hero photo — fleet or highway" src="https://images.unsplash.com/photo-1591419478162-a4dd21b7ec0a?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Wolfgang Hasselmann on Unsplash" credit-href="https://unsplash.com/@wolfgang_hasselmann"></image-slot></div>
+  <div style="position:absolute;top:0;bottom:0;right:0;width:64%;opacity:.6"><img src="assets/img/highway-desert.jpg" alt="Semi truck on an open interstate highway" fetchpriority="high" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"></div>
   <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000E24 0%,#000E24 34%,rgba(0,14,36,0.5) 70%,rgba(0,14,36,0.25) 100%)"></div>
   <div style="position:absolute;inset:auto 0 0 0;height:40%;pointer-events:none;background:linear-gradient(180deg,rgba(0,14,36,0),#000E24)"></div>
   <div style="position:relative;pointer-events:none;max-width:1320px;margin:0 auto;padding:clamp(130px,14vw,190px) 28px clamp(56px,6vw,90px);display:flex;flex-direction:column;gap:20px">
@@ -36,14 +35,13 @@ a:hover{color:#2F5A92}
       <a href="#amazon" style="padding:12px 18px;border:1.5px solid rgba(141,184,232,0.7);border-radius:999px;color:#F3F6FA;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA">Amazon-Related Freight</a>
     </div>
   </div>
-  <a href="https://unsplash.com/@wolfgang_hasselmann" target="_blank" style="position:absolute;right:16px;bottom:10px;z-index:2;font:500 11px Inter,sans-serif;color:rgba(255,255,255,0.6);text-decoration:none" style-hover="color:#F3F6FA">Photo: Wolfgang Hasselmann / Unsplash</a>
 </section>
 
 <section id="dry-van" data-screen-label="Dry Van" style="background:#F4F7FC;color:#24344F;padding:clamp(72px,9vw,112px) 0;scroll-margin-top:70px">
   <div style="max-width:1320px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:56px;align-items:center">
     <div data-reveal="" style="flex:1 1 440px;min-width:0;position:relative">
       <div style="position:absolute;left:-14px;bottom:-14px;width:45%;height:60%;background:#24344F;border-radius:16px"></div>
-      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,14,36,0.5)"><image-slot id="svc-dryvan" shape="rect" placeholder="Dry van photo — 53' trailer at a dock" src="https://images.unsplash.com/photo-1616432043562-3671ea2e5242?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Caleb Ruiter on Unsplash" credit-href="https://unsplash.com/@caleb_ruiter"></image-slot></div>
+      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,14,36,0.5)"><img src="assets/img/dry-van-sunset.jpg" alt="Volvo VNL 860 pulling a dry van at sunset" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"></div>
     </div>
     <div data-reveal="" data-reveal-delay="100" style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
       <span style="font:800 13px Montserrat,sans-serif;letter-spacing:.2em;color:#3A6AA8">01 — DRY VAN</span>
@@ -76,7 +74,7 @@ a:hover{color:#2F5A92}
     </div>
     <div data-reveal="" data-reveal-delay="100" style="flex:1 1 440px;min-width:0;position:relative">
       <div style="position:absolute;right:-14px;top:-14px;width:45%;height:60%;border:2px solid #8DB8E8;border-radius:16px"></div>
-      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,0,0,0.7)"><image-slot id="svc-poweronly" shape="rect" placeholder="Power only photo — tractor hooking a trailer" src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Sander Yigin on Unsplash" credit-href="https://unsplash.com/@sanderyigin"></image-slot></div>
+      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,0,0,0.7)"><img src="assets/img/power-only-vnl.jpg" alt="Volvo VNL 860 sleeper tractor" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"></div>
     </div>
   </div>
 </section>
@@ -85,7 +83,7 @@ a:hover{color:#2F5A92}
   <div style="max-width:1320px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:56px;align-items:center">
     <div data-reveal="" style="flex:1 1 440px;min-width:0;position:relative">
       <div style="position:absolute;left:-14px;bottom:-14px;width:45%;height:60%;background:#24344F;border-radius:16px"></div>
-      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,14,36,0.5)"><image-slot id="svc-amazon" shape="rect" placeholder="Relay / linehaul photo (no third-party logos)" src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Gabriel Santos on Unsplash" credit-href="https://unsplash.com/@photogasan"></image-slot></div>
+      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,14,36,0.5)"><img src="assets/img/storm-highway.jpg" alt="Volvo VNL on a linehaul run under a storm sky" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"></div>
     </div>
     <div data-reveal="" data-reveal-delay="100" style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
       <span style="font:800 13px Montserrat,sans-serif;letter-spacing:.2em;color:#3A6AA8">03 — AMAZON-RELATED FREIGHT</span>

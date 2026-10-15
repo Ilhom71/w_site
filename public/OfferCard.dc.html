@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="./js/support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -30,7 +30,7 @@
   <sc-if value="{{ hasFoot }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:12px;line-height:1.5;color:#B5C1D2">{{ footnote }}</p></sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:560,&quot;height&quot;:760},&quot;label&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Owner Operator&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;badge&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;NOW HIRING&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;rate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;88%&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;rateLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;of gross&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;gross&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;$10K–$12K weekly gross*&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;items&quot;:{&quot;editor&quot;:null,&quot;default&quot;:[&quot;No deposit&quot;,&quot;Fuel card discount&quot;,&quot;Weekly pay&quot;,&quot;24/7 dispatch&quot;,&quot;Consistent freight&quot;,&quot;Welcome bonus&quot;,&quot;Referral bonus&quot;,&quot;Everything transparent — no unnecessary charges&quot;],&quot;tsType&quot;:&quot;string[]&quot;},&quot;primaryLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Apply as Owner Operator&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;primaryHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#apply&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;secondaryLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;View details&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;secondaryHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#benefits&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;footnote&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;*Estimated weekly gross; actual results vary by lanes, miles and season and are not guaranteed.&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:560,&quot;height&quot;:760},&quot;label&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Owner Operator&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;badge&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;NOW HIRING&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;rate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;88%&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;rateLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;of gross&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;gross&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;$10K–$12K weekly gross*&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;items&quot;:{&quot;editor&quot;:null,&quot;default&quot;:[&quot;Fuel card discount&quot;,&quot;Weekly pay&quot;,&quot;24/7 dispatch&quot;,&quot;Consistent freight&quot;,&quot;Welcome bonus&quot;,&quot;Referral bonus&quot;,&quot;Everything transparent — no unnecessary charges&quot;],&quot;tsType&quot;:&quot;string[]&quot;},&quot;primaryLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Apply as Owner Operator&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;primaryHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#apply&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;secondaryLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;View details&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;secondaryHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#benefits&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;footnote&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;*Estimated weekly gross; actual results vary by lanes, miles and season and are not guaranteed.&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   renderVals() {
     const p = this.props;
@@ -39,7 +39,7 @@ class Component extends DCLogic {
     return {
       label: p.label ?? 'Owner Operator', rate: p.rate ?? '88%', rateLabel: p.rateLabel ?? 'of gross',
       gross: p.gross ?? '$10K–$12K weekly gross*', badge, hasBadge: !!badge, footnote, hasFoot: !!footnote,
-      items: p.items ?? ['No deposit', 'Fuel card discount', 'Weekly pay', '24/7 dispatch', 'Consistent freight', 'Welcome bonus', 'Referral bonus', 'Everything transparent — no unnecessary charges'],
+      items: p.items ?? ['Fuel card discount', 'Weekly pay', '24/7 dispatch', 'Consistent freight', 'Welcome bonus', 'Referral bonus', 'Everything transparent — no unnecessary charges'],
       primaryLabel: p.primaryLabel ?? 'Apply as Owner Operator', primaryHref: p.primaryHref ?? '#apply',
       secondaryLabel: p.secondaryLabel ?? 'View details', secondaryHref: p.secondaryHref ?? '#benefits'
     };

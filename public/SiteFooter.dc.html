@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="./js/support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -15,10 +15,11 @@
         <img src="assets/waynox-logo-white.png" alt="Waynox Freight" style="height:34px;width:auto;align-self:flex-start;display:block">
         <p style="margin:0;font-size:14.5px;line-height:1.6;max-width:300px;text-wrap:pretty">Nationwide OTR carrier hauling dry van, power only and Amazon-related freight — with 24/7 dispatch.</p>
         <div style="display:flex;gap:10px">
-          <a href="https://t.me/" target="_blank" aria-label="Telegram" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="telegram" size="18" hint-size="18px,18px"></dc-import></a>
-          <a href="https://wa.me/" target="_blank" aria-label="WhatsApp" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="whatsapp" size="18" hint-size="18px,18px"></dc-import></a>
-          <a href="https://instagram.com/" target="_blank" aria-label="Instagram" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="instagram" size="18" hint-size="18px,18px"></dc-import></a>
-          <a href="https://facebook.com/" target="_blank" aria-label="Facebook" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="facebook" size="18" hint-size="18px,18px"></dc-import></a>
+          <a href="https://t.me/WaynoxTeam" target="_blank" rel="noopener" aria-label="Telegram" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="telegram" size="18" hint-size="18px,18px"></dc-import></a>
+          <a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="whatsapp" size="18" hint-size="18px,18px"></dc-import></a>
+          <a href="https://www.instagram.com/waynoxfreight/" target="_blank" rel="noopener" aria-label="Instagram" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="instagram" size="18" hint-size="18px,18px"></dc-import></a>
+          <a href="https://www.facebook.com/61591834844907/" target="_blank" rel="noopener" aria-label="Facebook" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="facebook" size="18" hint-size="18px,18px"></dc-import></a>
+          <a href="https://www.tiktok.com/@waynox_freight" target="_blank" rel="noopener" aria-label="TikTok" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;transition:all .2s" style-hover="background:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="tiktok" size="18" hint-size="18px,18px"></dc-import></a>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px">
@@ -56,6 +57,7 @@
         <a href="Legal.dc.html#terms" style="color:#B5C1D2;text-decoration:none" style-hover="color:#F3F6FA">Terms of Use</a>
         <a href="Legal.dc.html#recruiting" style="color:#B5C1D2;text-decoration:none" style-hover="color:#F3F6FA">Recruiting Disclaimer</a>
         <a href="Legal.dc.html#sms" style="color:#B5C1D2;text-decoration:none" style-hover="color:#F3F6FA">SMS Terms</a>
+        <a href="Legal.dc.html#credits" style="color:#B5C1D2;text-decoration:none" style-hover="color:#F3F6FA">Photo Credits</a>
       </div>
     </div>
   </div>
@@ -113,7 +115,7 @@ class Component extends DCLogic {
       if (block) Array.from(block.children).forEach((el, i) => {
         el.animate([{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'none' }], { duration: 700, delay: 120 + i * 90, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
       });
-      const img = hero.querySelector('image-slot');
+      const img = hero.querySelector('image-slot, img[src^="assets/img/"]');
       if (img) img.animate([{ transform: 'scale(1.08)' }, { transform: 'scale(1)' }], { duration: 2200, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'both' });
     }
     // Stagger children of grids that scroll into view

@@ -15,7 +15,7 @@ try {
 } catch {}
 
 const PORT = process.env.PORT || 3000;
-const ROOT = __dirname;
+const ROOT = path.join(__dirname, 'public');
 
 // ---- Lead formatting -------------------------------------------------------
 const TYPES = {
@@ -92,7 +92,6 @@ async function handleLead(req, res) {
 
 // ---- Static files ----------------------------------------------------------
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.gif': 'image/gif', '.ico': 'image/x-icon', '.woff2': 'font/woff2' };
-const PRIVATE = new Set(['server.js', 'package.json', 'package-lock.json', 'render.yaml', 'readme.md']);
 
 function serveStatic(req, res) {
   let rel;
@@ -101,7 +100,7 @@ function serveStatic(req, res) {
   const file = path.normalize(path.join(ROOT, rel));
   const parts = path.relative(ROOT, file).split(path.sep);
   const ext = path.extname(file).toLowerCase();
-  if (file.indexOf(ROOT) !== 0 || parts.some((p) => p.startsWith('.')) || PRIVATE.has(parts.join('/').toLowerCase()) || !MIME[ext]) {
+  if (file.indexOf(ROOT) !== 0 || parts.some((p) => p.startsWith('.')) || !MIME[ext]) {
     res.writeHead(404); return res.end('Not found');
   }
   fs.readFile(file, (err, buf) => {

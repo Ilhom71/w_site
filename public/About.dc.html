@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="./js/support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -17,13 +17,12 @@ a{color:#3A6AA8}
 a:hover{color:#2F5A92}
 *{box-sizing:border-box}
 </style>
-<script src="./image-slot.js"></script>
 </helmet>
 <div style="font-family:Inter,system-ui,sans-serif;color:#F3F6FA;background:#000E24;overflow-x:clip">
 <dc-import name="SiteHeader" active="about" hint-size="100%,1px"></dc-import>
 
 <section data-screen-label="About hero" style="position:relative;overflow:hidden;background:#000E24">
-  <div style="position:absolute;top:0;bottom:0;right:0;width:64%;opacity:.6"><image-slot id="about-hero" shape="rect" placeholder="Hero photo — team or office in Lisle, IL" src="https://images.unsplash.com/photo-1695222833131-54ee679ae8e5?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Artem Balashevsky on Unsplash" credit-href="https://unsplash.com/@abalashevsky"></image-slot></div>
+  <div style="position:absolute;top:0;bottom:0;right:0;width:64%;opacity:.6"><img src="assets/img/cascadia-blue.jpg" alt="Freightliner Cascadia sleeper truck" fetchpriority="high" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"></div>
   <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000E24 0%,#000E24 34%,rgba(0,14,36,0.5) 70%,rgba(0,14,36,0.25) 100%)"></div>
   <div style="position:absolute;inset:auto 0 0 0;height:40%;pointer-events:none;background:linear-gradient(180deg,rgba(0,14,36,0),#000E24)"></div>
   <div style="position:relative;pointer-events:none;max-width:1320px;margin:0 auto;padding:clamp(130px,14vw,190px) 28px clamp(56px,6vw,90px);display:flex;flex-direction:column;gap:20px">
@@ -31,7 +30,6 @@ a:hover{color:#2F5A92}
     <h1 style="margin:0;font:800 clamp(30px,5.6vw,80px)/0.96 Montserrat,sans-serif;letter-spacing:-.015em;max-width:900px">A carrier built on <span style="color:#8DB8E8">transparency</span></h1>
     <p style="margin:0;max-width:560px;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:#D3DBE6">Nationwide OTR freight for shippers and brokers — and a fair, open partnership for owner operators.</p>
   </div>
-  <a href="https://unsplash.com/@abalashevsky" target="_blank" style="position:absolute;right:16px;bottom:10px;z-index:2;font:500 11px Inter,sans-serif;color:rgba(255,255,255,0.6);text-decoration:none" style-hover="color:#F3F6FA">Photo: Artem Balashevsky / Unsplash</a>
 </section>
 
 <section data-screen-label="Our story" style="background:#F4F7FC;color:#24344F;padding:clamp(72px,9vw,112px) 0">
@@ -44,7 +42,7 @@ a:hover{color:#2F5A92}
     </div>
     <div data-reveal="" data-reveal-delay="100" style="flex:1 1 440px;min-width:0;position:relative">
       <div style="position:absolute;right:-14px;bottom:-14px;width:45%;height:60%;background:#24344F;border-radius:16px"></div>
-      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,14,36,0.5)"><image-slot id="about-story" shape="rect" placeholder="Story photo — office, dispatch room or team" src="https://images.unsplash.com/photo-1473445730015-841f29a9490b?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Robson Hatsukami Morgan on Unsplash" credit-href="https://unsplash.com/@robsonhmorgan"></image-slot></div>
+      <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#021632;box-shadow:0 30px 60px -30px rgba(0,14,36,0.5)"><img src="assets/img/vnl-860-side.jpg" alt="Volvo VNL 860 sleeper truck" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"></div>
     </div>
   </div>
 </section>

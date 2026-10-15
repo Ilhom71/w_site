@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-<script src="./lead.js"></script>
+<script src="./js/support.js"></script>
+<script src="./js/lead.js"></script>
 </head>
 <body>
 <x-dc>
@@ -19,7 +19,6 @@ a:hover{color:#2F5A92}
 *{box-sizing:border-box}
 input,select,textarea,button{font-family:inherit}
 </style>
-<script src="./image-slot.js"></script>
 </helmet>
 <div style="font-family:Inter,system-ui,sans-serif;color:#F3F6FA;background:#000E24;overflow-x:hidden">
 <dc-import name="SiteHeader" active="home" hint-size="100%,1px"></dc-import>
@@ -33,8 +32,7 @@ input,select,textarea,button{font-family:inherit}
     <h1 style="margin:26px 0 0;font:800 clamp(34px,6vw,80px)/0.96 Montserrat,sans-serif;letter-spacing:-.015em;max-width:980px;text-wrap:balance">Nationwide freight. <span style="color:#8DB8E8">Transparent</span> partnership.</h1>
     <p style="margin:28px 0 0;max-width:560px;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:#D3DBE6;text-wrap:pretty">Dry van, power only and Amazon-related freight across the lower 48 — backed by a dispatch team that picks up the phone 24/7.</p>
     <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:40px">
-      <a href="Request-Quote.dc.html" style="display:inline-flex;align-items:center;gap:12px;padding:19px 30px;background:#8DB8E8;color:#000E24;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s ease" style-hover="background:#2F5A92;transform:translateY(-2px);color:#000E24">Request a Quote<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
-      <a href="Drive-With-Us.dc.html" style="display:inline-flex;align-items:center;gap:12px;padding:17.5px 30px;border:1.5px solid rgba(255,255,255,0.6);color:#F3F6FA;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s ease" style-hover="border-color:#8DB8E8;background:rgba(141,184,232,0.14);color:#F3F6FA">Drive With Us</a>
+      <a href="Drive-With-Us.dc.html" style="display:inline-flex;align-items:center;gap:12px;padding:19px 30px;background:#8DB8E8;color:#000E24;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s ease" style-hover="background:#2F5A92;transform:translateY(-2px);color:#000E24">Drive With Us<dc-import name="Icon" icon="arrow" size="18"></dc-import></a>
     </div>
   </div>
   <div style="position:relative;max-width:1320px;width:100%;margin:0 auto;padding:0 28px 44px">
@@ -42,7 +40,6 @@ input,select,textarea,button{font-family:inherit}
       <span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;font:800 clamp(14px,1.55vw,20px) Montserrat,sans-serif;letter-spacing:.03em;text-transform:uppercase">Now hiring owner operators <span style="opacity:.55">—</span> 88% of gross<dc-import name="Icon" icon="arrow" size="22" stroke="2.5" hint-size="22px,22px"></dc-import></span>
     </a>
   </div>
-  <a href="https://unsplash.com/@josiahfarrow" target="_blank" style="position:absolute;right:16px;bottom:10px;z-index:2;font:500 11px Inter,sans-serif;color:rgba(255,255,255,0.6);text-decoration:none" style-hover="color:#F3F6FA">Photo: Josiah Farrow / Unsplash</a>
 </section>
 
 <section data-screen-label="At a glance" style="background:#000E24;padding:72px 0 clamp(72px,8vw,112px)">
@@ -78,11 +75,10 @@ input,select,textarea,button{font-family:inherit}
         <div style="display:flex;align-items:center;gap:12px;font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#3A6AA8">WHAT WE HAUL</div>
         <h2 style="margin:18px 0 0;font:800 clamp(32px,4.2vw,56px)/1 Montserrat,sans-serif;letter-spacing:-.01em">Capacity for shippers &amp; brokers</h2>
       </div>
-      <a href="Request-Quote.dc.html" style="display:inline-flex;align-items:center;gap:12px;padding:18px 28px;background:#24344F;color:#FFFFFF;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s ease" style-hover="background:#000E24;color:#FFFFFF">Request a Quote<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px">
       <a data-reveal="" href="Services.dc.html#dry-van" style="display:flex;flex-direction:column;background:#FFFFFF;border-radius:16px;overflow:hidden;text-decoration:none;color:#24344F;box-shadow:0 1px 0 rgba(0,14,36,0.06),0 20px 40px -24px rgba(0,14,36,0.25);transition:all .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 30px 60px -24px rgba(0,14,36,0.4);color:#24344F">
-        <div style="position:relative;aspect-ratio:16/10;background:#021632"><image-slot id="home-svc-dryvan" shape="rect" placeholder="Dry van photo" src="https://images.unsplash.com/photo-1485575301924-6891ef935dcd?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Seb Creativo on Unsplash" credit-href="https://unsplash.com/@sebcreativo"></image-slot><span style="position:absolute;pointer-events:none;left:18px;top:18px;background:#8DB8E8;color:#000E24;padding:7px 14px;font:800 12px Montserrat,sans-serif;letter-spacing:.1em"><span style="display:block;">53' FTL</span></span></div>
+        <div style="position:relative;aspect-ratio:16/10;background:#021632"><img src="assets/img/dry-van-cascadia.jpg" alt="Freightliner Cascadia sleeper pulling a 53-foot dry van" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"><span style="position:absolute;pointer-events:none;left:18px;top:18px;background:#8DB8E8;color:#000E24;padding:7px 14px;font:800 12px Montserrat,sans-serif;letter-spacing:.1em"><span style="display:block;">53' FTL</span></span></div>
         <div style="padding:28px;display:flex;flex-direction:column;gap:12px;flex:1">
           <h3 style="margin:0;font:800 24px Montserrat,sans-serif;">Dry Van</h3>
           <p style="margin:0;color:#55647C;line-height:1.6;font-size:15px">53' full truckload for palletized and boxed freight, moving nationwide OTR.</p>
@@ -90,7 +86,7 @@ input,select,textarea,button{font-family:inherit}
         </div>
       </a>
       <a data-reveal="" data-reveal-delay="100" href="Services.dc.html#power-only" style="display:flex;flex-direction:column;background:#FFFFFF;border-radius:16px;overflow:hidden;text-decoration:none;color:#24344F;box-shadow:0 1px 0 rgba(0,14,36,0.06),0 20px 40px -24px rgba(0,14,36,0.25);transition:all .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 30px 60px -24px rgba(0,14,36,0.4);color:#24344F">
-        <div style="position:relative;aspect-ratio:16/10;background:#021632"><image-slot id="home-svc-poweronly" shape="rect" placeholder="Power only photo" src="https://images.unsplash.com/photo-1670509295484-df0c2512fec4?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Zieben VH on Unsplash" credit-href="https://unsplash.com/@zieben_vh"></image-slot><span style="position:absolute;pointer-events:none;left:18px;top:18px;background:#8DB8E8;color:#000E24;padding:7px 14px;font:800 12px Montserrat,sans-serif;letter-spacing:.1em"><span style="display:block;">TRACTOR + DRIVER</span></span></div>
+        <div style="position:relative;aspect-ratio:16/10;background:#021632"><img src="assets/img/power-only-cascadia-126.jpg" alt="Freightliner Cascadia 126 sleeper tractor" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"><span style="position:absolute;pointer-events:none;left:18px;top:18px;background:#8DB8E8;color:#000E24;padding:7px 14px;font:800 12px Montserrat,sans-serif;letter-spacing:.1em"><span style="display:block;">TRACTOR + DRIVER</span></span></div>
         <div style="padding:28px;display:flex;flex-direction:column;gap:12px;flex:1">
           <h3 style="margin:0;font:800 24px Montserrat,sans-serif;">Power Only</h3>
           <p style="margin:0;color:#55647C;line-height:1.6;font-size:15px">You provide the trailer — we provide the tractor and driver to move it.</p>
@@ -98,7 +94,7 @@ input,select,textarea,button{font-family:inherit}
         </div>
       </a>
       <a data-reveal="" data-reveal-delay="200" href="Services.dc.html#amazon" style="display:flex;flex-direction:column;background:#FFFFFF;border-radius:16px;overflow:hidden;text-decoration:none;color:#24344F;box-shadow:0 1px 0 rgba(0,14,36,0.06),0 20px 40px -24px rgba(0,14,36,0.25);transition:all .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 30px 60px -24px rgba(0,14,36,0.4);color:#24344F">
-        <div style="position:relative;aspect-ratio:16/10;background:#021632"><image-slot id="home-svc-amazon" shape="rect" placeholder="Relay / linehaul photo" src="https://images.unsplash.com/photo-1651928977880-ffb2d963b6b4?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Natalia Marcelewicz on Unsplash" credit-href="https://unsplash.com/@nataliila"></image-slot><span style="position:absolute;pointer-events:none;left:18px;top:18px;background:#8DB8E8;color:#000E24;padding:7px 14px;font:800 12px Montserrat,sans-serif;letter-spacing:.1em"><span style="display:block;">RELAY &amp; LINEHAUL</span></span></div>
+        <div style="position:relative;aspect-ratio:16/10;background:#021632"><img src="assets/img/linehaul-dusk.jpg" alt="Volvo VNL sleeper with trailer at dusk" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"><span style="position:absolute;pointer-events:none;left:18px;top:18px;background:#8DB8E8;color:#000E24;padding:7px 14px;font:800 12px Montserrat,sans-serif;letter-spacing:.1em"><span style="display:block;">RELAY &amp; LINEHAUL</span></span></div>
         <div style="padding:28px;display:flex;flex-direction:column;gap:12px;flex:1">
           <h3 style="margin:0;font:800 24px Montserrat,sans-serif;">Amazon-Related Freight</h3>
           <p style="margin:0;color:#55647C;line-height:1.6;font-size:15px">Amazon-related loads handled with on-time discipline and 24/7 dispatch coverage.</p>
@@ -131,7 +127,7 @@ input,select,textarea,button{font-family:inherit}
       <p style="margin:0;font-size:12.5px;color:#B5C1D2">*Estimated weekly gross; actual results vary by lanes, miles and season and are not guaranteed.</p>
     </div>
     <div data-reveal="" data-reveal-delay="120" style="flex:1 1 480px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:1px;background:rgba(141,184,232,0.55);border:1px solid rgba(141,184,232,0.55);border-radius:16px;overflow:hidden">
-      <div style="background:#000E24;padding:26px 24px;display:flex;align-items:center;gap:16px;transition:background .2s" style-hover="background:#021632"><span style="color:#8DB8E8;display:flex"><dc-import name="Icon" icon="nodeposit" size="34" stroke="1.5" hint-size="34px,34px"></dc-import></span><span style="font:800 14px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">No deposit</span></div>
+      <div style="background:#000E24;padding:26px 24px;display:flex;align-items:center;gap:16px;transition:background .2s" style-hover="background:#021632"><span style="color:#8DB8E8;display:flex"><dc-import name="Icon" icon="dollar" size="34" stroke="1.5" hint-size="34px,34px"></dc-import></span><span style="font:800 14px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">88% of gross</span></div>
       <div style="background:#000E24;padding:26px 24px;display:flex;align-items:center;gap:16px;transition:background .2s" style-hover="background:#021632"><span style="color:#8DB8E8;display:flex"><dc-import name="Icon" icon="fuel" size="34" stroke="1.5" hint-size="34px,34px"></dc-import></span><span style="font:800 14px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">Fuel card discount</span></div>
       <div style="background:#000E24;padding:26px 24px;display:flex;align-items:center;gap:16px;transition:background .2s" style-hover="background:#021632"><span style="color:#8DB8E8;display:flex"><dc-import name="Icon" icon="calendar" size="34" stroke="1.5" hint-size="34px,34px"></dc-import></span><span style="font:800 14px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">Weekly pay</span></div>
       <div style="background:#000E24;padding:26px 24px;display:flex;align-items:center;gap:16px;transition:background .2s" style-hover="background:#021632"><span style="color:#8DB8E8;display:flex"><dc-import name="Icon" icon="clock" size="34" stroke="1.5" hint-size="34px,34px"></dc-import></span><span style="font:800 14px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">24/7 dispatch</span></div>
@@ -183,7 +179,7 @@ input,select,textarea,button{font-family:inherit}
         <span style="font:800 18px Montserrat,sans-serif;text-transform:uppercase">Prefer messaging?</span>
         <span style="color:#B5C1D2;font-size:14.5px">Message recruiting directly.</span>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <a href="https://t.me/" target="_blank" style="height:52px;border-radius:8px;background:#8DB8E8;color:#000E24;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font:800 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:all .2s" style-hover="background:#2F5A92;color:#000E24"><dc-import name="Icon" icon="telegram" size="18" hint-size="18px,18px"></dc-import>Telegram</a>
+          <a href="https://t.me/WaynoxTeam" target="_blank" style="height:52px;border-radius:8px;background:#8DB8E8;color:#000E24;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font:800 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:all .2s" style-hover="background:#2F5A92;color:#000E24"><dc-import name="Icon" icon="telegram" size="18" hint-size="18px,18px"></dc-import>Telegram</a>
           <a href="https://wa.me/" target="_blank" style="height:52px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.5);color:#F3F6FA;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font:800 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:all .2s" style-hover="border-color:#8DB8E8;color:#F3F6FA"><dc-import name="Icon" icon="whatsapp" size="18" hint-size="18px,18px"></dc-import>WhatsApp</a>
         </div>
       </div>
@@ -218,7 +214,7 @@ input,select,textarea,button{font-family:inherit}
               </sc-for>
             </div>
           </div>
-          <label style="display:flex;gap:12px;align-items:flex-start;grid-column:1/-1;cursor:pointer"><input type="checkbox" onChange="{{ f.consent.on }}" style="width:20px;height:20px;margin:1px 0 0;accent-color:#8DB8E8;flex:none"><span style="font-size:13px;line-height:1.55;color:#B5C1D2">I agree to receive calls and SMS from Waynox Freight about my application at the number provided. Message and data rates may apply. Reply STOP to opt out. See <a href="Legal.dc.html#sms" style="color:#8DB8E8">SMS Terms</a> and <a href="Legal.dc.html#privacy" style="color:#8DB8E8">Privacy Policy</a>. <span style="color:#8DB8E8">*</span></span></label>
+          <label style="display:flex;gap:12px;align-items:flex-start;grid-column:1/-1;cursor:pointer"><input type="checkbox" onChange="{{ f.consent.on }}" style="width:20px;height:20px;margin:1px 0 0;accent-color:#8DB8E8;flex:none"><span style="font-size:13px;line-height:1.55;color:#B5C1D2">I agree to receive calls and SMS from Waynox Freight LLC about my application at the number provided. Message and data rates may apply. Reply STOP to opt out. See <a href="Legal.dc.html#sms" style="color:#8DB8E8">SMS Terms</a> and <a href="Legal.dc.html#privacy" style="color:#8DB8E8">Privacy Policy</a>. <span style="color:#8DB8E8">*</span></span></label>
           <sc-if value="{{ f.consent.has }}" hint-placeholder-val="{{ false }}"><span style="color:#FF6B6B;font-size:12.5px;grid-column:1/-1;margin-top:-10px">{{ f.consent.err }}</span></sc-if>
           <sc-if value="{{ sendErr }}" hint-placeholder-val="{{ false }}"><div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:8px;background:#FDECEC;color:#B3262B;font-size:14px;font-weight:600"><dc-import name="Icon" icon="alert" size="18" hint-size="18px,18px"></dc-import>Couldn’t send right now — please try again or call (301) 306-1099.</div></sc-if>
           <button type="submit" style="grid-column:1/-1;height:60px;border:0;border-radius:8px;background:#8DB8E8;color:#000E24;font:800 15px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;opacity:{{ btnOpacity }};display:flex;align-items:center;justify-content:center;gap:12px;transition:all .2s" style-hover="background:#2F5A92">{{ btnLabel }}</button>
@@ -229,40 +225,13 @@ input,select,textarea,button{font-family:inherit}
 </section>
 
 <section data-screen-label="24/7 Dispatch" style="position:relative;min-height:520px;display:flex;align-items:center;overflow:hidden;background:#000000">
-  <div style="position:absolute;inset:0;opacity:.55"><image-slot id="home-night-highway" shape="rect" placeholder="Night highway photo" src="https://images.unsplash.com/photo-1592805144716-feeccccef5ac?fm=jpg&amp;q=70&amp;w=2000&amp;auto=format&amp;fit=crop" credit="Photo by Josiah Farrow on Unsplash" credit-href="https://unsplash.com/@josiahfarrow"></image-slot></div>
+  <div style="position:absolute;inset:0;opacity:.55"><img src="assets/img/night-highway.jpg" alt="Volvo VNL with dry van on a desert highway at dusk" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover"></div>
   <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,14,36,0.95) 0%,rgba(0,14,36,0.7) 50%,rgba(141,184,232,0.25) 100%)"></div>
   <div data-reveal="" style="position:relative;pointer-events:none;max-width:1320px;width:100%;margin:0 auto;padding:96px 28px;display:flex;flex-direction:column;gap:22px">
     <span style="align-self:flex-start;display:flex;align-items:center;gap:10px;padding:9px 16px;border:1px solid #8DB8E8;border-radius:999px;font:800 12px Montserrat,sans-serif;letter-spacing:.16em;background:rgba(141,184,232,0.15)"><span style="width:8px;height:8px;border-radius:50%;background:#2BD67B;box-shadow:0 0 0 4px rgba(43,214,123,0.2)"></span>DISPATCH ONLINE</span>
     <h2 style="margin:0;font:800 clamp(30px,5vw,72px)/0.98 Montserrat,sans-serif;letter-spacing:-.01em;max-width:860px">Dispatch that never clocks out</h2>
     <p style="margin:0;max-width:560px;font-size:18px;line-height:1.6;color:#D3DBE6">Day, night, weekend — a real person answers for drivers and shippers, around the clock.</p>
     <a href="Contact.dc.html" style="pointer-events:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;color:#F3F6FA;font:800 14px Montserrat,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid #8DB8E8;padding-bottom:6px;margin-top:8px" style-hover="color:#8DB8E8">Contact dispatch<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
-  </div>
-</section>
-
-<section data-screen-label="Driver reviews" style="background:#F4F7FC;color:#24344F;padding:clamp(72px,9vw,120px) 0">
-  <div style="max-width:1320px;margin:0 auto;padding:0 28px">
-    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin-bottom:44px">
-      <div>
-        <div style="display:flex;align-items:center;gap:12px;font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#3A6AA8">DRIVER REVIEWS</div>
-        <h2 style="margin:18px 0 0;font:800 clamp(32px,4.2vw,56px)/1 Montserrat,sans-serif;letter-spacing:-.01em">Straight from the cab</h2>
-      </div>
-      <div style="display:flex;gap:10px">
-        <button onClick="{{ prev }}" aria-label="Previous" style="width:52px;height:52px;border-radius:50%;border:1.5px solid #000E24;background:transparent;color:#24344F;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s" style-hover="background:#000E24;color:#FFFFFF"><dc-import name="Icon" icon="left" size="22" hint-size="22px,22px"></dc-import></button>
-        <button onClick="{{ next }}" aria-label="Next" style="width:52px;height:52px;border-radius:50%;border:0;background:#24344F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s" style-hover="background:#000E24"><dc-import name="Icon" icon="right" size="22" hint-size="22px,22px"></dc-import></button>
-      </div>
-    </div>
-    <div ref="{{ trackRef }}" style="display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:8px">
-      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
-        <article style="flex:0 0 min(420px,86%);scroll-snap-align:start;background:#FFFFFF;border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:22px;border:1.5px dashed rgba(58,106,168,0.45)">
-          <div style="display:flex;gap:4px;color:#3A6AA8"><dc-import name="Icon" icon="star" size="18" fill="#3A6AA8" hint-size="18px,18px"></dc-import><dc-import name="Icon" icon="star" size="18" fill="#3A6AA8" hint-size="18px,18px"></dc-import><dc-import name="Icon" icon="star" size="18" fill="#3A6AA8" hint-size="18px,18px"></dc-import><dc-import name="Icon" icon="star" size="18" fill="#3A6AA8" hint-size="18px,18px"></dc-import><dc-import name="Icon" icon="star" size="18" fill="#3A6AA8" hint-size="18px,18px"></dc-import></div>
-          <p style="margin:0;font-size:17px;line-height:1.6;color:#55647C;font-style:italic">"[Replace with a real driver review — quote in the driver's own words.]"</p>
-          <div style="margin-top:auto;display:flex;align-items:center;gap:14px;padding-top:18px;border-top:1px solid #E1E8F3">
-            <span style="width:52px;height:52px;border-radius:50%;background:#E1E8F3;color:#7A8AA5;display:flex;align-items:center;justify-content:center"><dc-import name="Icon" icon="user" size="24" hint-size="24px,24px"></dc-import></span>
-            <span style="display:flex;flex-direction:column;gap:3px"><span style="font:800 15px Montserrat,sans-serif;text-transform:uppercase">[Driver Name {{ r.n }}]</span><span style="font-size:13px;color:#55647C">[Time with Waynox]</span></span>
-          </div>
-        </article>
-      </sc-for>
-    </div>
   </div>
 </section>
 
@@ -297,7 +266,7 @@ input,select,textarea,button{font-family:inherit}
   <div style="position:relative;background:#8DB8E8;padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px);display:flex;flex-direction:column;gap:18px;align-items:flex-start;overflow:hidden">
     <span style="position:relative;font:800 12.5px Montserrat,sans-serif;letter-spacing:.2em;color:#24344F">FOR OWNER OPERATORS</span>
     <h2 style="position:relative;margin:0;font:800 clamp(34px,4.4vw,60px)/1 Montserrat,sans-serif;">Ready to roll?</h2>
-    <p style="position:relative;margin:0;color:#000E24;font-size:16.5px;line-height:1.6;max-width:420px">88% of gross, weekly pay, no deposit.</p>
+    <p style="position:relative;margin:0;color:#000E24;font-size:16.5px;line-height:1.6;max-width:420px">88% of gross, weekly pay, 24/7 dispatch.</p>
     <a href="Drive-With-Us.dc.html" style="position:relative;margin-top:10px;display:inline-flex;align-items:center;gap:12px;padding:19px 30px;background:#000E24;color:#F3F6FA;border-radius:6px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s ease" style-hover="background:#FFFFFF;color:#000E24;transform:translateY(-2px)">Drive With Us<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
   </div>
 </section>
@@ -337,7 +306,7 @@ class Component extends DCLogic {
       ['What are the requirements to drive with Waynox?', "A valid CDL-A and a minimum of 1 year of CDL-A experience. You'll run your own truck — either truck only (power only) or truck + 53' dry van."],
       ['How much do owner operators earn?', 'Owner operators keep 88% of gross. Estimated weekly gross is $10K–$12K.* *Estimated weekly gross; actual results vary by lanes, miles and season and are not guaranteed.'],
       ['How often do I get paid?', 'Weekly.'],
-      ['Is there a deposit or hidden fees?', 'No deposit. Everything is transparent — no unnecessary charges.'],
+      ['Are there hidden fees?', 'No. Everything is transparent — no unnecessary charges.'],
       ['What freight do you haul?', "Dry van (53' FTL), power only and Amazon-related freight — nationwide OTR, with 24/7 dispatch."],
       ['How do I apply?', 'Fill out the quick application on this page or the full application on Drive With Us. You can also message recruiting on Telegram or WhatsApp.']
     ];
