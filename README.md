@@ -30,3 +30,13 @@ npm start              # http://localhost:3000
 ```
 
 When you edit `public/Home.dc.html`, copy it to `public/index.html` as well.
+
+## Who receives form submissions
+
+- Every chat id in `TELEGRAM_CHAT_ID` (comma-separated).
+- Everyone who opens the bot and sends `/start <code>`, where `<code>` is `TELEGRAM_JOIN_CODE`.
+  `/stop` unsubscribes. Keep the code private: whoever has it receives applicants' names and phones.
+
+Joined recipients are saved to `data/recipients.json` and to a message the bot pins in the first
+`TELEGRAM_CHAT_ID` chat, so the list survives restarts on Render's free plan. Don't unpin or delete that message.
+Only one server may poll the bot at a time: leave `TELEGRAM_JOIN_CODE` empty in a local `.env` while the live site runs.

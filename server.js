@@ -2,6 +2,7 @@
 // Zero dependencies (Node 18+). Secrets come from env vars, never from the browser:
 //   TELEGRAM_BOT_TOKEN  — token from @BotFather
 //   TELEGRAM_CHAT_ID    — chat/group/channel id(s); comma-separated for several recipients
+//   TELEGRAM_JOIN_CODE  — optional access code; anyone who sends "/start <code>" to the bot also gets leads
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -19,9 +20,9 @@ const ROOT = path.join(__dirname, 'public');
 
 // ---- Lead formatting -------------------------------------------------------
 const TYPES = {
-  callback: { title: '📞 Call-back request (Home)', fields: { name: 'Name', phone: 'Phone', email: 'Email', exp: 'CDL-A experience', equip: 'Equipment', contact: 'Preferred contact', consent: 'SMS/call consent' } },
+  callback: { title: '📞 Call-back request (Home)', fields: { name: 'Name', phone: 'Phone', email: 'Email', position: 'Position', exp: 'CDL-A experience', equip: 'Equipment', contact: 'Preferred contact', consent: 'SMS/call consent' } },
   application: { title: '🚛 Driver application (Join Our Team)', fields: { name: 'Name', phone: 'Phone', email: 'Email', city: 'City / State', exp: 'CDL-A experience', cdlState: 'CDL-A state', equip: 'Equipment', truck: 'Truck', start: 'Can start', lang: 'Language', contact: 'Preferred contact', notes: 'Notes', consent: 'SMS/call consent' } },
-  drive: { title: '🚛 Driver application (Drive With Us)', fields: { name: 'Name', phone: 'Phone', email: 'Email', city: 'City / State', exp: 'CDL-A experience', equip: 'Equipment', truck: 'Truck', start: 'Can start', lang: 'Language', contact: 'Preferred contact', notes: 'Notes', consent: 'SMS/call consent' } },
+  drive: { title: '🚛 Driver application (Drive With Us)', fields: { name: 'Name', phone: 'Phone', email: 'Email', city: 'City / State', position: 'Position', exp: 'CDL-A experience', equip: 'Equipment', truck: 'Truck', start: 'Can start', lang: 'Language', contact: 'Preferred contact', notes: 'Notes', consent: 'SMS/call consent' } },
   contact: { title: '✉️ Contact message', fields: { role: 'I am a', name: 'Name', email: 'Email', phone: 'Phone', message: 'Message' } }
 };
 const REQUIRED = { callback: ['name', 'phone'], application: ['name', 'phone'], drive: ['name', 'phone'], contact: ['name', 'email', 'message'] };
@@ -40,18 +41,93 @@ function buildMessage(type, fields, page) {
   return lines.join('\n').slice(0, 4000);
 }
 
+// ---- Telegram --------------------------------------------------------------
+// Leads go to every chat in TELEGRAM_CHAT_ID plus everyone who joined the bot with
+// the access code (TELEGRAM_JOIN_CODE): "/start <code>" subscribes, "/stop" unsubscribes.
+// Joined chats are saved to data/recipients.json and mirrored into a message the bot
+// pins in the first TELEGRAM_CHAT_ID chat, so the list survives restarts on hosts
+// with a wiped disk (Render free plan).
+const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const FIXED_CHATS = (process.env.TELEGRAM_CHAT_ID || '').split(',').map((s) => s.trim()).filter(Boolean);
+const JOIN_CODE = (process.env.TELEGRAM_JOIN_CODE || '').trim();
+const STORE_FILE = path.join(__dirname, 'data', 'recipients.json');
+const PIN_TAG = '#waynox-recipients';
+const joined = new Map(); // chat id -> display name
+let pinId = null;
+
+async function tg(method, body) {
+  const r = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body || {})
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!data.ok && method !== 'getUpdates') console.error(`Telegram ${method} error`, r.status, data.description || '');
+  return data;
+}
+
+async function loadRecipients() {
+  try { for (const [id, name] of JSON.parse(fs.readFileSync(STORE_FILE, 'utf8'))) joined.set(String(id), name); } catch {}
+  if (!FIXED_CHATS[0]) return;
+  const pinned = (await tg('getChat', { chat_id: FIXED_CHATS[0] })).result?.pinned_message;
+  const m = pinned?.text?.match(new RegExp(`${PIN_TAG}\\s*(\\[[\\s\\S]*\\])`));
+  if (!m) return;
+  pinId = pinned.message_id;
+  try { for (const [id, name] of JSON.parse(m[1])) if (!joined.has(String(id))) joined.set(String(id), name); } catch {}
+}
+
+async function saveRecipients() {
+  const list = [...joined];
+  try { fs.mkdirSync(path.dirname(STORE_FILE), { recursive: true }); fs.writeFileSync(STORE_FILE, JSON.stringify(list)); } catch (e) { console.error('Recipients file:', e.message); }
+  if (!FIXED_CHATS[0]) return;
+  const text = `📌 Website lead recipients (managed by the bot, keep pinned)\n${PIN_TAG} ${JSON.stringify(list)}`;
+  if (pinId && (await tg('editMessageText', { chat_id: FIXED_CHATS[0], message_id: pinId, text })).ok) return;
+  const sent = await tg('sendMessage', { chat_id: FIXED_CHATS[0], text, disable_notification: true });
+  if (sent.ok) { pinId = sent.result.message_id; await tg('pinChatMessage', { chat_id: FIXED_CHATS[0], message_id: pinId, disable_notification: true }); }
+}
+
+async function handleBotMessage(msg) {
+  if (!msg?.text || msg.chat?.type !== 'private') return;
+  const id = String(msg.chat.id);
+  const name = [msg.from?.first_name, msg.from?.last_name].filter(Boolean).join(' ') + (msg.from?.username ? ` (@${msg.from.username})` : '');
+  const text = msg.text.trim();
+  const reply = (t) => tg('sendMessage', { chat_id: id, text: t });
+  if (/^\/stop\b/.test(text)) {
+    if (joined.delete(id)) await saveRecipients();
+    return reply('You will no longer receive website leads.');
+  }
+  const code = text.replace(/^\/start(@\w+)?\s*/, '').trim();
+  if (code && code === JOIN_CODE) {
+    if (!joined.has(id)) { joined.set(id, name); await saveRecipients(); console.log('Lead recipient joined:', name); }
+    return reply('✅ Connected. New website applications and messages will arrive here. Send /stop to unsubscribe.');
+  }
+  if (FIXED_CHATS.includes(id) || joined.has(id)) return reply('You are already receiving website leads. Send /stop to unsubscribe.');
+  return reply('Send the access code to receive Waynox website leads.');
+}
+
+async function pollBot() {
+  await tg('deleteWebhook', { drop_pending_updates: false });
+  let offset = 0;
+  for (;;) {
+    try {
+      const data = await tg('getUpdates', { offset, timeout: 50, allowed_updates: ['message'] });
+      if (!data.ok) { await new Promise((r) => setTimeout(r, 5000)); continue; }
+      for (const u of data.result) { offset = u.update_id + 1; await handleBotMessage(u.message).catch((e) => console.error('Bot message:', e.message)); }
+    } catch (e) {
+      console.error('Bot polling:', e.message);
+      await new Promise((r) => setTimeout(r, 5000));
+    }
+  }
+}
+
 async function sendToTelegram(text) {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chats = (process.env.TELEGRAM_CHAT_ID || '').split(',').map((s) => s.trim()).filter(Boolean);
-  if (!token || !chats.length) throw new Error('TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID not configured');
+  const chats = [...new Set([...FIXED_CHATS, ...joined.keys()])];
+  if (!TOKEN || !chats.length) throw new Error('TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID not configured');
   const results = await Promise.all(chats.map(async (chat_id) => {
-    const r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id, text, parse_mode: 'HTML', disable_web_page_preview: true })
-    });
-    if (!r.ok) console.error('Telegram error', r.status, (await r.text()).replace(token, '***'));
-    return r.ok;
+    const r = await tg('sendMessage', { chat_id, text, parse_mode: 'HTML', disable_web_page_preview: true });
+    // Drop joined users who blocked the bot or deleted their account.
+    if (!r.ok && r.error_code === 403 && joined.delete(chat_id)) saveRecipients().catch(() => {});
+    return !!r.ok;
   }));
   if (!results.some(Boolean)) throw new Error('Telegram rejected the message');
 }
@@ -91,7 +167,7 @@ async function handleLead(req, res) {
 }
 
 // ---- Static files ----------------------------------------------------------
-const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.gif': 'image/gif', '.ico': 'image/x-icon', '.woff2': 'font/woff2' };
+const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.gif': 'image/gif', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml; charset=utf-8', '.webmanifest': 'application/manifest+json' };
 
 function serveStatic(req, res) {
   let rel;
@@ -123,3 +199,9 @@ http.createServer((req, res) => {
   if (req.method !== 'GET' && req.method !== 'HEAD') { res.writeHead(405); return res.end(); }
   serveStatic(req, res);
 }).listen(PORT, () => console.log(`Waynox site on http://localhost:${PORT}`));
+
+if (TOKEN) {
+  loadRecipients()
+    .then(() => { console.log(`Lead recipients: ${FIXED_CHATS.length} fixed + ${joined.size} joined`); if (JOIN_CODE) pollBot(); })
+    .catch((e) => console.error('Telegram startup:', e.message));
+}

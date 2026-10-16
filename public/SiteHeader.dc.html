@@ -58,7 +58,6 @@
           </sc-for>
         </nav>
         <div style="margin-left:auto;display:flex;gap:12px;align-items:center">
-          <a href="Request-Quote.dc.html" style="padding:13px 20px;border:1.5px solid rgba(255,255,255,0.55);border-radius:6px;color:#FFFFFF;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:all .2s ease" style-hover="border-color:#8DB8E8;background:rgba(141,184,232,0.12)">Get a Quote</a>
           <a href="Drive-With-Us.dc.html" style="padding:14.5px 20px;background:#8DB8E8;border-radius:6px;color:#000E24;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:all .2s ease;" style-hover="background:#A6C8EE;transform:translateY(-1px)">Drive With Us</a>
         </div>
       </sc-if>
@@ -89,10 +88,7 @@
       <div style="margin-top:auto;padding:24px;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(169,182,204,0.12)">
         <div style="display:flex;justify-content:center"><div data-no-i18n="" style="display:flex;gap:2px;padding:2px;border:1px solid rgba(169,182,204,0.3);border-radius:6px"><sc-for list="{{ langs }}" as="l" hint-placeholder-count="3"><button type="button" onClick="{{ l.pick }}" style="border:0;cursor:pointer;border-radius:4px;padding:10px 18px;font:800 11px Montserrat,sans-serif;letter-spacing:.08em;background:{{ l.bg }};color:{{ l.color }}">{{ l.label }}</button></sc-for></div></div>
         <a href="tel:+13013061099" style="display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.4);color:#F3F6FA;text-decoration:none;font:800 14px Montserrat,sans-serif;letter-spacing:.06em"><dc-import name="Icon" dc-props="{{ ic.phone18 }}" hint-size="18px,18px"></dc-import>CALL (301) 306-1099</a>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <a href="Request-Quote.dc.html" style="display:flex;align-items:center;justify-content:center;height:54px;border-radius:8px;border:1.5px solid #8DB8E8;color:#F3F6FA;text-decoration:none;font:800 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">Get a Quote</a>
-          <a href="Drive-With-Us.dc.html" style="display:flex;align-items:center;justify-content:center;height:54px;border-radius:8px;background:#8DB8E8;color:#000E24;text-decoration:none;font:800 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">Drive With Us</a>
-        </div>
+        <a href="Drive-With-Us.dc.html" style="display:flex;align-items:center;justify-content:center;height:54px;border-radius:8px;background:#8DB8E8;color:#000E24;text-decoration:none;font:800 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">Drive With Us</a>
         <div style="display:flex;gap:12px;justify-content:center;padding-top:8px">
           <a href="https://t.me/WaynoxTeam" target="_blank" aria-label="Telegram" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(141,184,232,0.6);display:flex;align-items:center;justify-content:center;color:#8DB8E8"><dc-import name="Icon" dc-props="{{ ic.tg20 }}" hint-size="20px,20px"></dc-import></a>
           <a href="https://wa.me/" target="_blank" aria-label="WhatsApp" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(141,184,232,0.6);display:flex;align-items:center;justify-content:center;color:#8DB8E8"><dc-import name="Icon" dc-props="{{ ic.wa20 }}" hint-size="20px,20px"></dc-import></a>
