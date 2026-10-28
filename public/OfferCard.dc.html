@@ -7,14 +7,14 @@
 </head>
 <body>
 <x-dc>
-<div style="position:relative;background:linear-gradient(180deg,#03204A 0%,#021632 45%,#000E24 100%);border:1.5px solid #8DB8E8;border-radius:22px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;gap:26px;font-family:Inter,system-ui,sans-serif;color:#F3F6FA;overflow:hidden;height:100%;box-sizing:border-box">
+<div style="position:relative;background:linear-gradient(180deg,#03204A 0%,#021632 45%,#000E24 100%);border:0;background:rgba(141,184,232,0.12);border-radius:22px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;gap:26px;font-family:Inter,system-ui,sans-serif;color:#F3F6FA;overflow:hidden;height:100%;box-sizing:border-box">
   <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;position:relative">
-    <span style="font:800 15px Montserrat,sans-serif;letter-spacing:.18em;text-transform:uppercase">{{ label }}</span>
+    <span style="font:700 15px Montserrat,sans-serif;letter-spacing:0">{{ label }}</span>
     <sc-if value="{{ hasBadge }}" hint-placeholder-val="{{ true }}"><span style="background:#8DB8E8;padding:6px 12px"><span style="display:block;font:800 11px Montserrat,sans-serif;letter-spacing:.14em">{{ badge }}</span></span></sc-if>
   </div>
   <div style="display:flex;flex-direction:column;gap:6px;position:relative">
     <span style="font:800 clamp(56px,6vw,84px)/0.95 Montserrat,sans-serif;letter-spacing:-.03em">{{ rate }}</span>
-    <span style="font:800 15px Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#B5C1D2">{{ rateLabel }}</span>
+    <span style="font:700 15px Montserrat,sans-serif;letter-spacing:0;color:#B5C1D2">{{ rateLabel }}</span>
     <span style="margin-top:12px;align-self:flex-start;display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(141,184,232,0.55);border-radius:10px;font:800 15px Montserrat,sans-serif;background:rgba(141,184,232,0.1)">{{ gross }}</span>
   </div>
   <div style="height:1px;background:rgba(169,182,204,0.18)"></div>
@@ -24,8 +24,8 @@
     </sc-for>
   </ul>
   <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:6px">
-    <a href="{{ primaryHref }}" style="flex:1 1 220px;display:flex;align-items:center;justify-content:center;gap:10px;height:58px;background:#8DB8E8;color:#000E24;border-radius:8px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s ease;" style-hover="background:#2F5A92;color:#000E24;transform:translateY(-2px)">{{ primaryLabel }}<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
-    <a href="{{ secondaryHref }}" style="flex:1 1 140px;display:flex;align-items:center;justify-content:center;height:58px;border:1.5px solid rgba(255,255,255,0.5);color:#F3F6FA;border-radius:8px;font:800 14px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s ease" style-hover="border-color:#8DB8E8;color:#F3F6FA;background:rgba(141,184,232,0.12)">{{ secondaryLabel }}</a>
+    <a href="{{ primaryHref }}" style="flex:1 1 220px;display:flex;align-items:center;justify-content:center;gap:10px;height:58px;background:#8DB8E8;color:#000E24;border-radius:8px;font:700 14px Montserrat,sans-serif;letter-spacing:0;text-decoration:none;transition:all .2s ease;" style-hover="background:#2F5A92;color:#000E24;transform:translateY(-2px)">{{ primaryLabel }}<dc-import name="Icon" icon="arrow" size="18" hint-size="18px,18px"></dc-import></a>
+    <a href="{{ secondaryHref }}" style="flex:1 1 140px;display:flex;align-items:center;justify-content:center;height:58px;border:1.5px solid rgba(255,255,255,0.5);color:#F3F6FA;border-radius:8px;font:700 14px Montserrat,sans-serif;letter-spacing:0;text-decoration:none;transition:all .2s ease" style-hover="border-color:#8DB8E8;color:#F3F6FA;background:rgba(141,184,232,0.12)">{{ secondaryLabel }}</a>
   </div>
   <sc-if value="{{ hasFoot }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:12px;line-height:1.5;color:#B5C1D2">{{ footnote }}</p></sc-if>
 </div>

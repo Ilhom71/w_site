@@ -30,23 +30,23 @@
   </sc-if>
   <div style="background:{{ barBg }};border-bottom:1px solid {{ barBorder }};box-shadow:{{ barShadow }};transition:background .3s ease, box-shadow .3s ease">
     <div style="max-width:1320px;margin:0 auto;padding:0 28px;height:{{ barH }};display:flex;align-items:center;gap:28px;transition:height .3s ease">
-      <a href="Home.dc.html" aria-label="Waynox Freight home" style="display:flex;align-items:center;flex:none">
+      <a href="/" aria-label="Waynox Freight home" style="display:flex;align-items:center;flex:none">
         <img src="assets/waynox-logo-white.png" alt="Waynox Freight" style="height:{{ logoH }};width:auto;display:block;transition:height .3s ease">
       </a>
       <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
         <nav style="display:flex;align-items:center;gap:4px;margin-left:12px">
           <sc-for list="{{ navA }}" as="n" hint-placeholder-count="2">
-            <a href="{{ n.href }}" style="position:relative;padding:10px 14px;font:700 13px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:{{ n.color }};border-bottom:2px solid {{ n.line }}" style-hover="color:#FFFFFF">{{ n.label }}</a>
+            <a href="{{ n.href }}" style="position:relative;padding:10px 14px;font:700 13px Montserrat,sans-serif;letter-spacing:0;text-decoration:none;color:{{ n.color }};border-bottom:2px solid {{ n.line }}" style-hover="color:#FFFFFF">{{ n.label }}</a>
           </sc-for>
           <div onMouseEnter="{{ ddOpen }}" onMouseLeave="{{ ddClose }}" style="position:relative">
-            <a href="Services.dc.html" style="display:flex;align-items:center;gap:6px;padding:10px 14px;font:700 13px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:{{ svcColor }};border-bottom:2px solid {{ svcLine }}" style-hover="color:#FFFFFF">Services<dc-import name="Icon" dc-props="{{ ic.down }}" hint-size="14px,14px"></dc-import></a>
+            <a href="/services" style="display:flex;align-items:center;gap:6px;padding:10px 14px;font:700 13px Montserrat,sans-serif;letter-spacing:0;text-decoration:none;color:{{ svcColor }};border-bottom:2px solid {{ svcLine }}" style-hover="color:#FFFFFF">Services<dc-import name="Icon" dc-props="{{ ic.down }}" hint-size="14px,14px"></dc-import></a>
             <sc-if value="{{ dd }}" hint-placeholder-val="{{ false }}">
               <div style="position:absolute;top:100%;left:-12px;padding-top:12px;width:340px">
-                <div style="background:#021632;border:1px solid rgba(141,184,232,0.35);border-radius:14px;padding:10px;box-shadow:0 24px 60px -12px rgba(0,0,0,0.6);display:flex;flex-direction:column;gap:2px">
+                <div style="background:#021632;border:1px solid rgba(141,184,232,0.14);border-radius:14px;padding:10px;box-shadow:0 24px 60px -12px rgba(0,0,0,0.6);display:flex;flex-direction:column;gap:2px">
                   <sc-for list="{{ svcItems }}" as="s" hint-placeholder-count="4">
                     <a href="{{ s.href }}" style="display:flex;gap:14px;align-items:center;padding:12px 14px;border-radius:10px;text-decoration:none;color:#F3F6FA" style-hover="background:rgba(141,184,232,0.14)">
                       <span style="width:38px;height:38px;border-radius:9px;border:1px solid rgba(141,184,232,0.5);display:flex;align-items:center;justify-content:center;color:#8DB8E8;flex:none"><dc-import name="Icon" dc-props="{{ s.icon }}" hint-size="20px,20px"></dc-import></span>
-                      <span style="display:flex;flex-direction:column;gap:2px"><span style="font:800 13px Montserrat,sans-serif;letter-spacing:.04em;text-transform:uppercase">{{ s.label }}</span><span style="font-size:12.5px;color:#B5C1D2">{{ s.desc }}</span></span>
+                      <span style="display:flex;flex-direction:column;gap:2px"><span style="font:700 13px Montserrat,sans-serif;letter-spacing:0">{{ s.label }}</span><span style="font-size:12.5px;color:#B5C1D2">{{ s.desc }}</span></span>
                     </a>
                   </sc-for>
                 </div>
@@ -54,11 +54,11 @@
             </sc-if>
           </div>
           <sc-for list="{{ navB }}" as="n" hint-placeholder-count="2">
-            <a href="{{ n.href }}" style="position:relative;padding:10px 14px;font:700 13px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:{{ n.color }};border-bottom:2px solid {{ n.line }}" style-hover="color:#FFFFFF">{{ n.label }}</a>
+            <a href="{{ n.href }}" style="position:relative;padding:10px 14px;font:700 13px Montserrat,sans-serif;letter-spacing:0;text-decoration:none;color:{{ n.color }};border-bottom:2px solid {{ n.line }}" style-hover="color:#FFFFFF">{{ n.label }}</a>
           </sc-for>
         </nav>
         <div style="margin-left:auto;display:flex;gap:12px;align-items:center">
-          <a href="Drive-With-Us.dc.html" style="padding:14.5px 20px;background:#8DB8E8;border-radius:6px;color:#000E24;text-decoration:none;font:800 12.5px Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:all .2s ease;" style-hover="background:#A6C8EE;transform:translateY(-1px)">Drive With Us</a>
+          <a href="/drive-with-us" style="padding:14.5px 20px;background:#8DB8E8;border-radius:6px;color:#000E24;text-decoration:none;font:700 12.5px Montserrat,sans-serif;letter-spacing:0;white-space:nowrap;transition:all .2s ease;" style-hover="background:#A6C8EE;transform:translateY(-1px)">Drive With Us</a>
         </div>
       </sc-if>
       <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
@@ -77,18 +77,18 @@
       </div>
       <nav style="display:flex;flex-direction:column;padding:20px 24px;gap:2px">
         <sc-for list="{{ mobileNav }}" as="n" hint-placeholder-count="5">
-          <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="padding:14px 0;font:800 28px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:-.01em;color:{{ n.mcolor }};text-decoration:none;border-bottom:1px solid rgba(169,182,204,0.1)">{{ n.label }}</a>
+          <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="padding:14px 0;font:800 28px Montserrat,sans-serif;letter-spacing:-.01em;color:{{ n.mcolor }};text-decoration:none;border-bottom:1px solid rgba(169,182,204,0.1)">{{ n.label }}</a>
         </sc-for>
         <div style="display:flex;flex-direction:column;gap:4px;padding:12px 0 6px 0">
           <sc-for list="{{ svcItems }}" as="s" hint-placeholder-count="4">
-            <a href="{{ s.href }}" onClick="{{ closeMenu }}" style="display:flex;align-items:center;gap:10px;padding:9px 0;color:#B5C1D2;text-decoration:none;font:700 14px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.06em">{{ s.label }}</a>
+            <a href="{{ s.href }}" onClick="{{ closeMenu }}" style="display:flex;align-items:center;gap:10px;padding:9px 0;color:#B5C1D2;text-decoration:none;font:700 14px Montserrat,sans-serif;letter-spacing:0">{{ s.label }}</a>
           </sc-for>
         </div>
       </nav>
       <div style="margin-top:auto;padding:24px;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(169,182,204,0.12)">
         <div style="display:flex;justify-content:center"><div data-no-i18n="" style="display:flex;gap:2px;padding:2px;border:1px solid rgba(169,182,204,0.3);border-radius:6px"><sc-for list="{{ langs }}" as="l" hint-placeholder-count="3"><button type="button" onClick="{{ l.pick }}" style="border:0;cursor:pointer;border-radius:4px;padding:10px 18px;font:800 11px Montserrat,sans-serif;letter-spacing:.08em;background:{{ l.bg }};color:{{ l.color }}">{{ l.label }}</button></sc-for></div></div>
         <a href="tel:+13013061099" style="display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.4);color:#F3F6FA;text-decoration:none;font:800 14px Montserrat,sans-serif;letter-spacing:.06em"><dc-import name="Icon" dc-props="{{ ic.phone18 }}" hint-size="18px,18px"></dc-import>CALL (301) 306-1099</a>
-        <a href="Drive-With-Us.dc.html" style="display:flex;align-items:center;justify-content:center;height:54px;border-radius:8px;background:#8DB8E8;color:#000E24;text-decoration:none;font:800 13px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase">Drive With Us</a>
+        <a href="/drive-with-us" style="display:flex;align-items:center;justify-content:center;height:54px;border-radius:8px;background:#8DB8E8;color:#000E24;text-decoration:none;font:700 13px Montserrat,sans-serif;letter-spacing:0">Drive With Us</a>
         <div style="display:flex;gap:12px;justify-content:center;padding-top:8px">
           <a href="https://t.me/WaynoxTeam" target="_blank" aria-label="Telegram" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(141,184,232,0.6);display:flex;align-items:center;justify-content:center;color:#8DB8E8"><dc-import name="Icon" dc-props="{{ ic.tg20 }}" hint-size="20px,20px"></dc-import></a>
           <a href="https://wa.me/" target="_blank" aria-label="WhatsApp" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(141,184,232,0.6);display:flex;align-items:center;justify-content:center;color:#8DB8E8"><dc-import name="Icon" dc-props="{{ ic.wa20 }}" hint-size="20px,20px"></dc-import></a>
@@ -114,14 +114,14 @@ class Component extends DCLogic {
     const a = this.props.active ?? '';
     const sc = this.state.y > 40, desk = this.state.w >= 1140;
     const mk = (label, href, k) => ({ label, href, color: a === k ? '#FFFFFF' : '#C3CDDD', line: a === k ? '#8DB8E8' : 'transparent', mcolor: a === k ? '#8DB8E8' : '#FFFFFF' });
-    const navA = [mk('Home', 'Home.dc.html', 'home'), mk('About', 'About.dc.html', 'about')];
-    const navB = [mk('Safety', 'Safety.dc.html', 'safety'), mk('Contact', 'Contact.dc.html', 'contact')];
+    const navA = [mk('Home', '/', 'home'), mk('About', '/about', 'about')];
+    const navB = [mk('Safety', '/safety', 'safety'), mk('Contact', '/contact', 'contact')];
     const i = (icon, size = 14) => ({ icon, size });
     const svcItems = [
-      { label: 'Dry Van', desc: "53' full truckload, nationwide", href: 'Services.dc.html#dry-van', icon: i('truck', 20) },
-      { label: 'Power Only', desc: 'Our tractor, your trailer', href: 'Services.dc.html#power-only', icon: i('plug', 20) },
-      { label: 'Amazon-Related Freight', desc: 'Relay loads and linehaul', href: 'Services.dc.html#amazon', icon: i('box', 20) },
-      { label: 'Request a Quote', desc: 'Rates & availability for your lane', href: 'Request-Quote.dc.html', icon: i('tag', 20) }
+      { label: 'Dry Van', desc: "53' full truckload, nationwide", href: '/services#dry-van', icon: i('truck', 20) },
+      { label: 'Power Only', desc: 'Our tractor, your trailer', href: '/services#power-only', icon: i('plug', 20) },
+      { label: 'Amazon-Related Freight', desc: 'Relay loads and linehaul', href: '/services#amazon', icon: i('box', 20) },
+      { label: 'Request a Quote', desc: 'Rates & availability for your lane', href: '/request-quote', icon: i('tag', 20) }
     ];
     const langs = ['en', 'uz', 'ru'].map((k) => ({ label: k.toUpperCase(), bg: this.state.lang === k ? '#8DB8E8' : 'transparent', color: this.state.lang === k ? '#000E24' : '#A9B6CC', pick: () => window.WaynoxI18n && window.WaynoxI18n.set(k) }));
     return {
@@ -130,7 +130,7 @@ class Component extends DCLogic {
       barBorder: sc ? 'rgba(141,184,232,0.25)' : 'transparent',
       barShadow: sc ? '0 10px 30px -10px rgba(0,0,0,0.6)' : 'none',
       barH: sc || !desk ? '68px' : '84px', logoH: sc || !desk ? '28px' : '34px',
-      navA, navB, svcItems, mobileNav: [...navA, mk('Services', 'Services.dc.html', 'services'), ...navB, mk('FAQ', 'FAQ.dc.html', 'faq')],
+      navA, navB, svcItems, mobileNav: [...navA, mk('Services', '/services', 'services'), ...navB, mk('FAQ', '/faq', 'faq')],
       svcColor: a === 'services' ? '#FFFFFF' : '#C3CDDD', svcLine: a === 'services' ? '#8DB8E8' : 'transparent',
       ic: { phone: i('phone'), mail: i('mail'), tg: i('telegram', 16), wa: i('whatsapp', 16), down: i('down'), phone18: i('phone', 18), menu: i('menu', 22), close: i('close', 22), tg20: i('telegram', 20), wa20: i('whatsapp', 20) },
       ddOpen: () => this.setState({ dd: true }), ddClose: () => this.setState({ dd: false }),

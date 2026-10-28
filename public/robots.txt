@@ -1,9 +1,4 @@
 User-agent: *
 Allow: /
-# UI components, not standalone pages
-Disallow: /Icon.dc.html
-Disallow: /OfferCard.dc.html
-Disallow: /SiteFooter.dc.html
-Disallow: /SiteHeader.dc.html
 
-Sitemap: https://w-site-39rc.onrender.com/sitemap.xml
+Sitemap: https://waynoxfreight.com/sitemap.xml

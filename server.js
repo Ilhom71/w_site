@@ -169,10 +169,20 @@ async function handleLead(req, res) {
 // ---- Static files ----------------------------------------------------------
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.gif': 'image/gif', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml; charset=utf-8', '.webmanifest': 'application/manifest+json' };
 
+// Clean page URLs (/about) map to the page files; the old /About.dc.html URLs redirect there.
+const PAGES = { about: 'About', services: 'Services', safety: 'Safety', contact: 'Contact', faq: 'FAQ', legal: 'Legal', 'drive-with-us': 'Drive-With-Us', 'request-quote': 'Request-Quote' };
+const PAGE_SLUGS = Object.fromEntries(Object.entries(PAGES).map(([slug, name]) => [`/${name}.dc.html`, `/${slug}`]));
+Object.assign(PAGE_SLUGS, { '/index.html': '/', '/Home.dc.html': '/', '/Home': '/' });
+
 function serveStatic(req, res) {
-  let rel;
-  try { rel = decodeURIComponent(new URL(req.url, 'http://x').pathname); } catch { res.writeHead(400); return res.end(); }
-  if (rel === '/' || rel === '/Home') rel = '/index.html';
+  let rel, url;
+  try { url = new URL(req.url, 'http://x'); rel = decodeURIComponent(url.pathname); } catch { res.writeHead(400); return res.end(); }
+  if (PAGE_SLUGS[rel]) { res.writeHead(301, { Location: PAGE_SLUGS[rel] + url.search }); return res.end(); }
+  const slug = rel.replace(/\/+$/, '').slice(1).toLowerCase();
+  // Pages use relative asset paths, so /about/ or /About must redirect to the exact /about.
+  if (PAGES[slug] && rel !== `/${slug}`) { res.writeHead(301, { Location: `/${slug}` + url.search }); return res.end(); }
+  if (rel === '/') rel = '/index.html';
+  else if (PAGES[slug]) rel = `/${PAGES[slug]}.dc.html`;
   const file = path.normalize(path.join(ROOT, rel));
   const parts = path.relative(ROOT, file).split(path.sep);
   const ext = path.extname(file).toLowerCase();
@@ -184,6 +194,8 @@ function serveStatic(req, res) {
     res.writeHead(200, {
       'Content-Type': MIME[ext],
       'X-Content-Type-Options': 'nosniff',
+      // Header/footer components must stay crawlable (Google renders them into pages) but never rank on their own.
+      ...(ext === '.html' && rel.endsWith('.dc.html') && !Object.values(PAGES).includes(path.basename(rel, '.dc.html')) ? { 'X-Robots-Tag': 'noindex' } : {}),
       'Cache-Control': ext === '.html' ? 'public, max-age=0, must-revalidate' : parts[0] === 'assets' ? 'public, max-age=86400' : 'public, max-age=300'
     });
     res.end(req.method === 'HEAD' ? undefined : buf);
